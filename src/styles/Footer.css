@@ -1,0 +1,132 @@
+.ngo-footer {
+  background-color: #c9f2dc;
+  color: #0f6e40;
+  padding: 2rem 1rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+ 
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+ 
+.footer-section h4 {
+  margin-bottom: 1rem;
+  color: #0f6e40;
+}
+ 
+.footer-section p {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.contact p {
+    display: block;
+}
+ 
+.footer-social-icons {
+  margin-top: 1rem;
+}
+ 
+.footer-social-icons a {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #0f6e40;
+  transition: color 0.3s ease;
+}
+ 
+.footer-social-icons a:hover {
+  color: #1bc76b;
+}
+ 
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+ 
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+ 
+.footer-section ul li a {
+  color: #0f6e40;
+  text-decoration: none;
+}
+ 
+.footer-section ul li a:hover {
+  color: #1bc76b;
+}
+ 
+.question-form form {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.question-form input,
+.question-form textarea {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #a6d8bb;
+  background-color: white;
+  color: #333;
+}
+ 
+.question-form textarea {
+  resize: vertical;
+}
+ 
+.question-form button {
+  background-color: #0f6e40;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ 
+.question-form button:hover {
+  background-color: #1bc76b;
+}
+ 
+.footer-bottom {
+  margin-top: 2rem;
+  border-top: 1px solid #a6d8bb;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #0f6e40;
+}
+ 
+.back-to-top {
+  background-color: #0f6e40;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+ 
+.back-to-top:hover {
+  background-color: #1bc76b;
+}

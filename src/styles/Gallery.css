@@ -1,0 +1,67 @@
+.gallery-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 20px 40px 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+ 
+.gallery-title {
+  color: #0f6e40;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+ 
+.gallery-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.gallery-image {
+  width: 80%;
+  max-height: 400px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+ 
+.arrow {
+  position: absolute;
+  background: #0f6e40;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+}
+ 
+.arrow.left {
+  left: 5%;
+}
+ 
+.arrow.right {
+  right: 5%;
+}
+ 
+.gallery-dots {
+  margin-top: 15px;
+}
+ 
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #c0e2d2;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+ 
+.dot.active {
+  background-color: #0f6e40;
+}

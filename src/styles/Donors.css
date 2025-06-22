@@ -1,0 +1,67 @@
+.donors-section {
+    background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
+    padding: 2rem 1rem 4rem;
+    border-radius: 0 0 20px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  .donors-heading {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-box {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .donor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .donor-card {
+    background-color: white;
+    border-radius: 16px;
+    width: 220px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .donor-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .donor-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.8rem;
+  }
+  
+  .donor-card h2 {
+    font-size: 1.2rem;
+    color: #0f6e40;
+    margin: 0.2rem 0;
+  }
+  
+  .donor-card p {
+    margin: 0.2rem 0;
+    color: #444;
+    font-size: 0.95rem;
+  }
+  

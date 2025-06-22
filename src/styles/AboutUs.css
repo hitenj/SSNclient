@@ -1,0 +1,64 @@
+.about-us {
+    background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
+    padding: 60px 20px;
+    border-radius: 0 0 20px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2rem;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-section.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .about-text {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .about-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: #149456;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.6;
+  }
+  
+  .about-icon {
+    flex: 0.5;
+    min-width: 180px;
+    font-size: 5rem;
+    color: #0f6e40;
+    display: flex;
+    justify-content: center;
+  }
+  

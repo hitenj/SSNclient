@@ -1,0 +1,97 @@
+  .register-campaign {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 2rem;
+    padding-top: 20px;
+    background: #f7fff9;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 128, 0, 0.1);
+  }
+  
+  .campaign-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .campaign-header h1 {
+    font-size: 2rem;
+    color: #006400;
+  }
+  
+  .campaign-header p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .campaign-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #006400;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group button {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .form-group button {
+    background-color: #32cd32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .form-group button:hover {
+    background-color: #228b22;
+  }
+  
+  .submit-wrap {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .submit-btn {
+    padding: 0.75rem 2rem;
+    background: #006400;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  .submit-btn:disabled {
+    background: #999;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

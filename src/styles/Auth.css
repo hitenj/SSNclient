@@ -1,0 +1,101 @@
+.auth-container {
+    background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .auth-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .auth-card h2 {
+    color: #0f6e40;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .auth-card form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-card input,
+  .auth-card textarea {
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #a6d8bb;
+    font-size: 1rem;
+  }
+  
+  .auth-card textarea {
+    resize: none;
+    min-height: 60px;
+  }
+  
+  .auth-card .terms {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .auth-card button {
+    background-color: #0f6e40;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-card button:hover {
+    background-color: #1bc76b;
+  }
+  
+  .auth-redirect,
+  .admin-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .auth-redirect a,
+  .admin-link a {
+    color: #0f6e40;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .google-auth {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .google-btn {
+    margin-top: 0.5rem;
+    background: #fff;
+    border: 1px solid #0f6e40;
+    color: #0f6e40;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .google-btn:hover {
+    background: #e6f7ef;
+  }
+  

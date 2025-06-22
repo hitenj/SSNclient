@@ -1,0 +1,45 @@
+.objectives-section {
+  background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
+  padding: 10px 20px 60px 20px;
+  border-radius: 0 0 20px 20px;
+  text-align: center;
+}
+ 
+.objectives-title {
+  color: white;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+ 
+.objectives-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+ 
+.objective-card {
+  background: white;
+  border-radius: 15px;
+  width: 220px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+ 
+.objective-icon {
+  font-size: 40px;
+  color: #0f6e40;
+  margin-bottom: 10px;
+}
+ 
+.objective-title {
+  font-size: 18px;
+  color: #149456;
+  margin-bottom: 8px;
+}
+ 
+.objective-desc {
+  font-size: 14px;
+  color: #4a5568;
+}
