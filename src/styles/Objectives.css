@@ -1,45 +1,70 @@
+/* OBJECTIVES SECTION */
+
 .objectives-section {
   background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
-  padding: 10px 20px 60px 20px;
+  padding: 40px 20px 60px 20px;
   border-radius: 0 0 20px 20px;
   text-align: center;
 }
- 
+
 .objectives-title {
-  color: white;
+  color: #fff;
   font-size: 26px;
   margin-bottom: 40px;
 }
- 
+
 .objectives-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
- 
+
 .objective-card {
-  background: white;
+  background: #fff;
   border-radius: 15px;
   width: 220px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
- 
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 .objective-icon {
   font-size: 40px;
   color: #0f6e40;
   margin-bottom: 10px;
 }
- 
+
 .objective-title {
   font-size: 18px;
   color: #149456;
   margin-bottom: 8px;
 }
- 
+
 .objective-desc {
   font-size: 14px;
   color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .objective-card {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .objective-card {
+    width: 100%;
+    max-width: 320px;
+  }
 }

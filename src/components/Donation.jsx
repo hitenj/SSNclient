@@ -19,16 +19,16 @@ function Donation() {
 
         <div className="donation-card">
           <h2>Bank Details</h2>
-          <p><strong>Account Name:</strong> Sarvarth Siddhi Foundation</p>
-          <p><strong>Bank:</strong> State Bank of India</p>
-          <p><strong>A/C Number:</strong> 123456789012</p>
-          <p><strong>IFSC:</strong> SBIN0001234</p>
+          <p><strong>Account Name:</strong> SARVARTHASIDDHI FOUNDATION</p>
+          <p><strong>Bank:</strong> Axis Bank</p>
+          <p><strong>A/C Number:</strong> 925010028006852</p>
+          <p><strong>IFSC:</strong> UTIB0004369</p>
         </div>
 
         <div className="donation-card">
           <h2>Membership</h2>
           <p>One-time Membership Charge:</p>
-          <p className="charge">₹501</p>
+          <p className="charge">₹1100</p>
           <p>Includes access to events and newsletters.</p>
         </div>
       </div>

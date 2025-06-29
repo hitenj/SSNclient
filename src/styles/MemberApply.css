@@ -4,6 +4,7 @@
   border-radius: 0 0 20px 20px;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 10px;
 }
 
 .member-title {
@@ -38,6 +39,7 @@
   background: #f8fff9;
   font-size: 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .member-form textarea {
@@ -72,4 +74,20 @@
 
 .submit-btn:hover {
   background-color: #1bc76b;
+}
+
+/* ✅ MOBILE FIX */
+@media (max-width: 768px) {
+  .member-form {
+    margin: 0 10px;
+    max-width: none;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }

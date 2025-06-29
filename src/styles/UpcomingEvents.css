@@ -1,144 +1,180 @@
+/* ===============================
+   Upcoming Events Section
+   =============================== */
+
 .upcoming-events {
-    background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
-    padding: 30px 20px;
-    border-radius: 0 0 20px 20px;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    text-align: center;
-  }
-  
-  .events-header h1 {
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-    margin-top: 0px;
-  }
-  
-  .events-header p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-  }
-  
-  .events-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
-  
-  .event-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    overflow: hidden;
-    color: #333;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .event-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .event-content {
-    padding: 20px;
-  }
-  
-  .event-content h2 {
-    color: #0f6e40;
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-  
-  .event-meta {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 0.8rem;
-  }
-  
-  .event-content p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-  }
-  
-  .event-content button {
-    background-color: #0f6e40;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .event-content button:hover {
-    background-color: #1bc76b;
-  }
-  
-  .booking-alert {
-    margin-top: 30px;
-    background: #fff;
-    color: #0f6e40;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    font-weight: bold;
-    display: inline-block;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  .booking-form {
-    background: #fff;
-    border-radius: 12px;
-    padding: 2rem;
-    max-width: 500px;
-    margin: 2rem auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: #0f6e40;
-  }
-  
-  .booking-form h3 {
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-    color: #0f6e40;
-  }
-  
-  .booking-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .booking-form input,
-  .booking-form select {
-    padding: 0.6rem;
-    border-radius: 8px;
-    border: 1px solid #a6d8bb;
-    background-color: #f9fdfb;
-    color: #333;
-  }
-  
-  .booking-form button {
-    background-color: #0f6e40;
-    color: #fff;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .booking-form button:hover {
-    background-color: #1bc76b;
-  }
-  
+  background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
+  padding: 30px 20px;
+  border-radius: 0 0 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.events-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.events-header p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.events-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.event-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  color: #333;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 20px;
+}
+
+.event-content h2 {
+  color: #0f6e40;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.event-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.8rem;
+}
+
+.event-content p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.event-content button {
+  background-color: #0f6e40;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.event-content button:hover {
+  background-color: #1bc76b;
+}
+
+.booking-alert {
+  margin-top: 30px;
+  background: #fff;
+  color: #0f6e40;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  display: inline-block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ===============================
+   Modal Styles
+   =============================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  color: #0f6e40;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #0f6e40;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #1bc76b;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #a6d8bb;
+  background-color: #f9fdfb;
+  color: #333;
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+
+.booking-form label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #0f6e40;
+}
+
+.booking-form button {
+  background-color: #0f6e40;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+  background-color: #1bc76b;
+}

@@ -1,128 +1,148 @@
 .crowdfunding-section {
-    padding: 2rem 1rem 4rem;
-    background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-  }
-  
-  .crowdfunding-title {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .campaigns-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-  
+  padding: 2rem 1rem 4rem;
+  background: linear-gradient(to bottom right, #0f6e40, #1bc76b);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.crowdfunding-title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.campaigns-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.campaign-card {
+  background: white;
+  color: #333;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.campaign-card:hover {
+  transform: translateY(-5px);
+}
+
+.campaign-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.campaign-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.campaign-content h2 {
+  color: #0f6e40;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.campaign-location {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar-container {
+  background-color: #e0f7ec;
+  border-radius: 20px;
+  height: 10px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  background-color: #0f6e40;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: #149456;
+  margin-bottom: 1rem;
+}
+
+.campaign-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.participate-btn,
+.donate-btn {
+  flex: 1;
+  background-color: #0f6e40;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-btn:hover,
+.participate-btn:hover {
+  background-color: #1bc76b;
+}
+
+.register-campaign-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-campaign-btn {
+  background: #ffffff;
+  color: #0f6e40;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #0f6e40;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-campaign-btn:hover {
+  background-color: #0f6e40;
+  color: white;
+}
+
+.review-note {
+  font-size: 0.9rem;
+  color: #e0ffe5;
+  margin-top: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
   .campaign-card {
-    background: white;
-    color: #333;
-    border-radius: 15px;
-    width: 320px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-  
-  .campaign-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .campaign-card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .campaign-content {
-    padding: 1rem;
-    text-align: left;
-  }
-  
-  .campaign-content h2 {
-    color: #0f6e40;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .campaign-location {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 0.75rem;
-  }
-  
-  .progress-bar-container {
-    background-color: #e0f7ec;
-    border-radius: 20px;
-    height: 10px;
-    width: 100%;
-    margin: 10px 0;
-  }
-  
-  .progress-bar {
-    background-color: #0f6e40;
-    height: 100%;
-    border-radius: 20px;
-  }
-  
-  .progress-text {
-    font-size: 0.9rem;
-    color: #149456;
-    margin-bottom: 1rem;
-  }
-  
-  .campaign-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .participate-btn,
-  .donate-btn {
-    flex: 1;
-    background-color: #0f6e40;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem 0.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .donate-btn:hover,
-  .participate-btn:hover {
-    background-color: #1bc76b;
+    max-width: 100%;
   }
 
-  .register-campaign-container {
-    text-align: center;
-    margin-bottom: 30px;
+  .campaign-content {
+    padding: 0.75rem;
   }
-  
-  .register-campaign-btn {
-    background: #ffffff;
-    color: #0f6e40;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: 2px solid #0f6e40;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+  .crowdfunding-title {
+    font-size: 1.8rem;
   }
-  
-  .register-campaign-btn:hover {
-    background-color: #0f6e40;
-    color: white;
+
+  .campaign-content h2 {
+    font-size: 1.1rem;
   }
-  
-  .review-note {
-    font-size: 0.9rem;
-    color: #e0ffe5;
-    margin-top: 10px;
-  }
-  
+
+}

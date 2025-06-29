@@ -130,3 +130,52 @@
 .back-to-top:hover {
   background-color: #1bc76b;
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .footer-section.links {
+    display: none;
+  }
+
+  .footer-section p {
+    justify-content: center;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+
+  .footer-social-icons a {
+    margin-right: 0.75rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .back-to-top {
+    margin-top: 1rem;
+  }
+
+  .question-form form {
+    width: 100%;
+  }
+
+  .question-form input,
+  .question-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

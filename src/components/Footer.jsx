@@ -14,9 +14,9 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-section contact">
           <h4>Contact Us</h4>
-          <p><FaMapMarkerAlt /> 122 Jain Street, Agra, India</p>
-          <p><FaPhoneAlt /> +91 96765 48210</p>
-          <p><FaEnvelope /> info@sarvarthsiddhi.org</p>
+          <p><FaMapMarkerAlt /> Agra, India</p>
+          <p><FaPhoneAlt /> +91 97594 97594</p>
+          <p><FaEnvelope /> sarvarthasiddhifoundation@gmail.com</p>
  
           <div className="footer-social-icons">
             <h4>Follow Us</h4>

@@ -60,3 +60,48 @@
 .read-more-btn:hover {
     background-color: #1bc76b;
   }
+
+@media (max-width: 768px) {
+  .mission-section {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .mission-text {
+    padding: 0;
+    width: 100%;
+  }
+
+  .mission-text h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .mission-text ul {
+    margin: 0 auto 20px auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mission-text li {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .mission-icon {
+    margin-top: 20px;
+  }
+
+  .mission-icon svg {
+    font-size: 100px;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    font-size: 16px;
+    padding: 0.5rem 1.2rem;
+  }
+}

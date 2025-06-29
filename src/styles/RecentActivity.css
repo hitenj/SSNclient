@@ -8,22 +8,23 @@
   flex-wrap: wrap;
   border-radius: 0 0 50px 50px;
 }
- 
+
 .carousel-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 200px;
+  margin-bottom: 40px;
 }
- 
+
 .carousel-heading {
   text-align: center;
-  margin: 0%;
+  margin: 0;
   margin-bottom: 10px;
   color: white;
   font-size: 18px;
 }
- 
+
 .carousel {
   position: relative;
   width: 100%;
@@ -37,13 +38,13 @@
   justify-content: start;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
- 
+
 .carousel img {
   width: 100%;
   height: 220px;
   object-fit: cover;
 }
- 
+
 .carousel-label1 {
   font-size: 15px;
   color: #0f6e40;
@@ -55,11 +56,11 @@
 .carousel-label2 {
   font-size: 13px;
   color: #149456;
-  margin-top:0px;
+  margin-top: 0;
   font-weight: 450;
   opacity: 0.9;
 }
- 
+
 .carousel-prev-button {
   position: absolute;
   top: 45%;
@@ -87,9 +88,19 @@
   font-size: 18px;
   cursor: pointer;
 }
- 
+
+@media screen and (max-width: 768px) {
+  .carousel-prev-button,
+  .carousel-next-button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
+
 .activities-container {
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   background: white;
   border-radius: 20px;
   padding: 0 20px 20px 20px;
@@ -97,20 +108,33 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
 }
- 
+
+.activities-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activities-container::-webkit-scrollbar-thumb {
+  background-color: #0f6e40;
+  border-radius: 3px;
+}
+
+.activities-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
 .section-title {
   text-align: center;
   margin-bottom: 15px;
   color: #0f6e40;
   font-size: 20px;
 }
- 
+
 .activity-scroll {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
- 
+
 .activity-item {
   display: flex;
   flex-direction: column;
@@ -121,25 +145,26 @@
   text-align: center;
   border-left: 4px solid #0f6e40;
 }
- 
+
 .activity-image-vertical {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 200px;
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 10px;
 }
- 
+
 .activity-info {
   padding: 0 5px;
 }
- 
+
 .activity-title {
   font-weight: bold;
   color: #0f6e40;
   margin: 0 0 5px;
 }
- 
+
 .activity-time {
   font-size: 13px;
   color: #4a5568;
@@ -156,32 +181,36 @@
   background: rgb(255, 255, 255);
   border-radius: 15px;
   backdrop-filter: blur(8px);
-  height: 250px;
+  min-height: 200px;
+  height: auto;
+  padding: 20px;
   width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, background 0.2s ease;
 }
- 
+
 .link-box:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.25);
 }
- 
+
 .link-icon {
   font-size: 50px;
   color: #0f6e40;
   margin-bottom: 8px;
 }
- 
+
 .link-label {
   font-size: 14px;
   font-weight: bold;
   color: #0f6e40;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
+  text-align: center;
 }
- 
+
 .arrow-icon {
   font-size: 14px;
 }
