@@ -12,7 +12,7 @@ body {
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1350px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
@@ -22,7 +22,7 @@ body {
 }
 
 .logo a {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #0f6e40;
   text-decoration: none;
@@ -92,9 +92,53 @@ body {
   cursor: pointer;
 }
 
+.plant-logo {
+  width: 2rem;
+  height: auto;
+  color: #0f6e40;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #0f6e40;
+  text-decoration: none;
+  flex-shrink: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.full-name {
+  display: inline;
+}
+
+.short-name {
+  display: none;
+}
+
 /* ----------------------------- */
 /* MOBILE STYLES */
 @media screen and (max-width: 768px) {
+
+  .full-name {
+    display: none;
+  }
+  
+  .short-name {
+    display: inline;
+    font-size: 1.4rem;
+  }
+
   .nav-toggle {
     display: block;
     margin-left: auto;
@@ -189,6 +233,16 @@ body {
 
 .mobile-header-actions .social-icons a:hover {
   color: #1bc76b;
+}
+
+  .plant-logo {
+    width: 1.5rem;
+  }
+
+  .logo-text {
+  white-space: normal;
+  word-break: break-word;
+  font-size: 1rem;
 }
 }
 

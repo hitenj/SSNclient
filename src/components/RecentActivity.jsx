@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/RecentActivity.css';
 import { FaDonate, FaArrowRight, FaUserPlus, FaTree } from 'react-icons/fa';
+import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
+import Plantation from "../assets/Plantation.jpg";
 
 
 function RecentActivity() {
@@ -20,24 +22,9 @@ function RecentActivity() {
 
   const activities = [
     {
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStUhhZkHWQwSi91AcZAkx_VCy8F4zFbA4szw&s',
-      title: 'Distributed food to 200 families',
-      time: 'May 5, 2025 – 10:00 AM',
-    },
-    {
-      image: 'https://www.shutterstock.com/image-photo/delhi-india-june-19-2023-600nw-2370827869.jpg',
-      title: 'Organized a blood donation camp',
-      time: 'May 3, 2025 – 3:00 PM',
-    },
-    {
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7q7jqFq31AqPqde1-CiQwucAzVXDVYOUgZw&s',
-      title: 'Workshop for underprivileged children',
-      time: 'April 28, 2025 – 1:00 PM',
-    },
-    {
-      image: 'https://rgipt.ac.in/site/writereaddata/uploadedImages/Image/I_202109101106239571.jpg',
-      title: 'Planted 500 trees in the community park',
-      time: 'April 22, 2025 – 9:00 AM',
+      image: Plantation,
+      title: 'Planted 100 trees at the Mahaveer Chowk, Chhipitola',
+      time: 'April 22, 2023 – 9:00 AM',
     },
   ];
  
@@ -74,7 +61,7 @@ function RecentActivity() {
         </div>*/}
 
         <div className="link-box tree-donation-box">
-          <FaTree className="link-icon tree-icon" />
+          <PlantLogo style={{ width: 150, height: 150, color: '#0f6e40' }} />
           <h3 className="tree-heading">Plant Trees</h3>
 
           <div className="tree-counter">

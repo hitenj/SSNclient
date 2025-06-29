@@ -5,6 +5,7 @@ import Mission from "./Mission";
 import Objectives from "./Objectives";
 import Gallery from "./Gallery";
 import Footer from "./Footer";
+import Crowdfunding from "./CrowdFunding";
 
 function Home() {
     return (
@@ -14,6 +15,7 @@ function Home() {
         <RecentActivity />
         <Mission />
         <Objectives />
+        <Crowdfunding preview={true} />
         <Gallery />
       </>
     );

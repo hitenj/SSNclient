@@ -41,7 +41,7 @@
 
 .carousel img {
   width: 100%;
-  height: 220px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -147,6 +147,7 @@
   border: none;
   padding: 10px 20px;
   font-weight: bold;
+  font-size: 15px;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
@@ -169,6 +170,7 @@
   max-height: 600px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  margin-top: 30px;
 }
 
 .activities-container::-webkit-scrollbar {
@@ -186,7 +188,7 @@
 
 .section-title {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #0f6e40;
   font-size: 20px;
 }
@@ -210,15 +212,15 @@
 
 .activity-image-vertical {
   width: 100%;
-  max-width: 300px;
-  height: 200px;
+  max-width: 400px;
+  height: 250px;
   border-radius: 10px;
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .activity-info {
-  padding: 0 5px;
+  padding: 10 5px;
 }
 
 .activity-title {
@@ -231,6 +233,7 @@
   font-size: 13px;
   color: #4a5568;
   margin: 0;
+  margin-bottom: 10px;
 }
 
 .link-box {
@@ -243,7 +246,7 @@
   background: rgb(255, 255, 255);
   border-radius: 15px;
   backdrop-filter: blur(8px);
-  min-height: 200px;
+  min-height: 50px;
   height: auto;
   padding: 20px;
   width: 100%;
@@ -256,7 +259,7 @@
 }
 
 .link-icon {
-  font-size: 50px;
+  font-size: 30px;
   color: #0f6e40;
   margin-bottom: 8px;
 }
@@ -277,6 +280,15 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  .feedback-section {
+    gap: 50px;
+  }
+
+  .activities-container {
+  margin-top: 0px;
+}
+
   .carousel-prev-button,
   .carousel-next-button {
     width: 24px;

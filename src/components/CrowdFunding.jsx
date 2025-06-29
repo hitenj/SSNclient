@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/CrowdFunding.css';
 
 const campaigns = [
@@ -20,12 +20,23 @@ const campaigns = [
     place: 'Bhavnagar, Gujarat',
     postedOn: 'June 5, 2025',
     image: 'https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?cs=srgb&dl=pexels-ritesh-arya-1423700-3079978.jpg&fm=jpg',
-    raised: 58000,
+    raised: 0,
     goal: 80000,
+  },
+  {
+    id: 3,
+    title: 'Planting 1 Lakh trees',
+    description: 'Provide books, bags, and stationery to 100 school kids in rural Gujarat.',
+    place: 'All over the nation',
+    postedOn: 'June 30, 2025',
+    image: 'https://www.ugaoo.com/cdn/shop/articles/shutterstock_649766830.jpg?v=1661881786',
+    raised: 0,
+    goal: 10000000,
   },
 ];
 
-function Crowdfunding() {
+
+function Crowdfunding({ preview = false }) {
   const completed = campaigns.filter(c => c.raised >= c.goal);
   const active = campaigns.filter(c => c.raised < c.goal);
   const navigate = useNavigate();
@@ -66,13 +77,25 @@ function Crowdfunding() {
           <p className="campaign-location">{c.place} | Posted on {c.postedOn}</p>
           <p>{c.description}</p>
           <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: `${percent}%` }}></div>
+            <div
+              className="progress-bar"
+              style={{ width: `${percent}%` }}
+            ></div>
           </div>
-          <p className="progress-text">₹{c.raised.toLocaleString()} raised of ₹{c.goal.toLocaleString()}</p>
+          <p className="progress-text">
+            ₹{c.raised.toLocaleString()} raised of ₹{c.goal.toLocaleString()}
+          </p>
           <div className="campaign-buttons">
-            <button className="participate-btn" onClick={() => handleShare(c.id)}>Share</button>
+            <button
+              className="participate-btn"
+              onClick={() => handleShare(c.id)}
+            >
+              Share
+            </button>
             {c.raised < c.goal && (
-              <button className="donate-btn" onClick={handleDonateClick}>Donate</button>
+              <button className="donate-btn" onClick={handleDonateClick}>
+                Donate
+              </button>
             )}
             {c.raised >= c.goal && (
               <span className="completed-tag">🎉 Goal Achieved</span>
@@ -85,26 +108,49 @@ function Crowdfunding() {
 
   return (
     <section className="crowdfunding-section">
-      <h1 className="crowdfunding-title">Crowdfunding Campaigns</h1>
-
-      <div className="register-campaign-container">
-        <button className="register-campaign-btn" onClick={handleRegisterClick}>
-          📢 Register Your Campaign
-        </button>
-        <p className="review-note">All campaigns are submitted for review to ensure authenticity.</p>
-      </div>
-
-      {active.length > 0 && (
+      {!preview && (
         <>
-          <h2 className="subsection-heading">Active Campaigns</h2>
-          <div className="campaigns-grid">{active.map(renderCampaign)}</div>
+          <h1 className="crowdfunding-title">Crowdfunding Campaigns</h1>
+          <div className="register-campaign-container">
+            <button
+              className="register-campaign-btn"
+              onClick={handleRegisterClick}
+            >
+              📢 Register Your Campaign
+            </button>
+            <p className="review-note">
+              All campaigns are submitted for review to ensure authenticity.
+            </p>
+          </div>
         </>
       )}
 
-      {completed.length > 0 && (
+      {active.length > 0 && (
+        <>
+          <h2 className="subsection-heading">
+            {preview ? 'Active Crowdfunding Campaigns' : 'Active Campaigns'}
+          </h2>
+          <div className="campaigns-grid">
+            {active
+              .slice(0, preview ? 2 : active.length)
+              .map(renderCampaign)}
+          </div>
+          {preview && (
+            <div style={{ marginTop: '2rem' }}>
+              <Link to="/crowd-funding" className="see-all-btn">
+                See All Campaigns →
+              </Link>
+            </div>
+          )}
+        </>
+      )}
+
+      {!preview && completed.length > 0 && (
         <>
           <h2 className="subsection-heading">Completed Campaigns</h2>
-          <div className="campaigns-grid">{completed.map(renderCampaign)}</div>
+          <div className="campaigns-grid">
+            {completed.map(renderCampaign)}
+          </div>
         </>
       )}
     </section>

@@ -4,6 +4,7 @@
   color: white;
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
+  border-radius: 0 0 20px 20px;
 }
 
 .crowdfunding-title {
@@ -126,6 +127,25 @@
   margin-top: 10px;
 }
 
+.see-all-btn {
+  background: #ffffff;
+  color: #0f6e40;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border: 2px solid #0f6e40;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.see-all-btn:hover {
+  background-color: #0f6e40;
+  color: #ffffff;
+}
+
+
 /* Responsive tweaks */
 @media (max-width: 480px) {
   .campaign-card {
@@ -143,6 +163,12 @@
 
   .campaign-content h2 {
     font-size: 1.1rem;
+  }
+
+  .see-all-btn {
+    width: 80%;
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
 
 }
