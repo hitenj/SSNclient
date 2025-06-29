@@ -26,7 +26,7 @@ const campaigns = [
   {
     id: 3,
     title: 'Planting 1 Lakh trees',
-    description: 'Provide books, bags, and stationery to 100 school kids in rural Gujarat.',
+    description: 'Join our mission to plant 1 lakh trees across cities and villages. Your support helps build a sustainable, green environment for generations to come.',
     place: 'All over the nation',
     postedOn: 'June 30, 2025',
     image: 'https://www.ugaoo.com/cdn/shop/articles/shutterstock_649766830.jpg?v=1661881786',

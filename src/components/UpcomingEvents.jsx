@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/UpcomingEvents.css';
+import Plantation from "../assets/Plantation.jpg";
 
 function UpcomingEvents() {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -24,7 +25,7 @@ function UpcomingEvents() {
       date: 'August 8, 2025',
       location: 'Mathura, India',
       description: 'Join us in planting trees for a greener future.',
-      image: 'https://images.pexels.com/photos/572679/pexels-photo-572679.jpeg'
+      image: Plantation
     }
   ];
 
