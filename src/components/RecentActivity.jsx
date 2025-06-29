@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import '../styles/RecentActivity.css';
-import { FaDonate, FaArrowRight, FaUserPlus } from 'react-icons/fa';
+import { FaDonate, FaArrowRight, FaUserPlus, FaTree } from 'react-icons/fa';
 
 
 function RecentActivity() {
+
+  const [treeCount, setTreeCount] = useState(1);
+  const pricePerTree = 101;
+
+  const increaseTree = () => setTreeCount(treeCount + 1);
+  const decreaseTree = () => {
+    if (treeCount > 1) setTreeCount(treeCount - 1);
+  };
+
+  const handleDonate = () => {
+    alert(`Thank you for donating ₹${treeCount * pricePerTree} to plant ${treeCount} tree(s)!`);
+    // Optionally redirect to payment page here
+  };
 
   const activities = [
     {
@@ -28,44 +41,56 @@ function RecentActivity() {
     },
   ];
  
-  const carouselLeft = [
+  /*const carouselLeft = [
     { image: 'https://t4.ftcdn.net/jpg/03/67/70/91/360_F_367709147_W4Q2pRjMcz7jUkuH4e1BIhmtCDceu3FH.jpg', name: 'Sanjay Jain', post: 'President' },
     { image: 'https://img.freepik.com/free-photo/indian-man-smiling-mockup-psd-cheerful-expression-closeup-portra_53876-143269.jpg?semt=ais_hybrid&w=740', name: 'Hiten Jain', post:'Technical team' },
-  ];
+  ];*/
  
   const carouselRight = [
-    { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbERFvfKjB6uTaztESNHP-mrMiI0I4cQ2oNg&s', name: 'Rajeev Sharma', city: 'Agra' },
-    { image: 'https://t4.ftcdn.net/jpg/00/70/67/33/360_F_70673337_0wgkTTgozYhKMgBozFHJotukvlJEHzB7.jpg', name: 'Raju Jain', city: 'Ajmer' },
+    { image: 'https://st4.depositphotos.com/9998432/24360/v/450/depositphotos_243600690-stock-illustration-person-gray-photo-placeholder-girl.jpg', name: 'Gunmala Jain', city: 'Agra' },
+    { image: 'https://st4.depositphotos.com/9998432/22597/v/600/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg', name: 'Rajesh Jain', city: 'Agra' },
   ];
  
   const [leftIndex, setLeftIndex] = useState(0);
   const [rightIndex, setRightIndex] = useState(0);
  
-  const nextLeft = () => setLeftIndex((leftIndex + 1) % carouselLeft.length)
+  //const nextLeft = () => setLeftIndex((leftIndex + 1) % carouselLeft.length)
   const nextRight = () => setRightIndex((rightIndex + 1) % carouselRight.length)
 
-  const prevLeft = () => setLeftIndex((leftIndex - 1 + carouselLeft.length) % carouselLeft.length)
-  const prevRight = () => setRightIndex((rightIndex - 1 + carouselLeft.length) % carouselRight.length)
+  //const prevLeft = () => setLeftIndex((leftIndex - 1 + carouselLeft.length) % carouselLeft.length)
+  const prevRight = () => setRightIndex((rightIndex - 1 + carouselRight.length) % carouselRight.length)
 
 
   return (
     <div className="feedback-section">
       <div className="carousel-container">
-        <h2 className="carousel-heading">Management Team</h2>
+        {/*<h2 className="carousel-heading">Management Team</h2>
         <div className="carousel">
           <button className="carousel-prev-button" onClick={prevLeft}>{'<'}</button>
           <img src={carouselLeft[leftIndex].image} alt="Left Carousel" />
           <p className="carousel-label1">{carouselLeft[leftIndex].name}</p>
           <p className="carousel-label2">{carouselLeft[leftIndex].post}</p>
           <button className="carousel-next-button" onClick={nextLeft}>{'>'}</button>
-        </div>
+        </div>*/}
 
-        <a href="/donate" className="link-box">
-          <FaDonate className="link-icon" />
-          <div className="link-label">
-            Donate Now <FaArrowRight className="arrow-icon" />
+        <div className="link-box tree-donation-box">
+          <FaTree className="link-icon tree-icon" />
+          <h3 className="tree-heading">Plant Trees</h3>
+
+          <div className="tree-counter">
+            <button className="tree-btn" onClick={decreaseTree}>–</button>
+            <span className="tree-count">{treeCount}</span>
+            <button className="tree-btn" onClick={increaseTree}>+</button>
           </div>
-        </a>
+
+          <p className="tree-total">
+            Total: ₹{treeCount * pricePerTree}
+          </p>
+
+          <button className="tree-donate-btn" onClick={handleDonate}>
+            Donate Now <FaArrowRight className="arrow-icon" />
+          </button>
+        </div>
 
       </div>
  

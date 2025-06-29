@@ -89,13 +89,75 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-  .carousel-prev-button,
-  .carousel-next-button {
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-  }
+/* New tree donation styles */
+
+.tree-donation-box {
+  padding: 20px;
+}
+
+.tree-heading {
+  color: #0f6e40;
+  font-size: 18px;
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+.tree-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.tree-btn {
+  background: #0f6e40;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tree-btn:hover {
+  background: #1bc76b;
+}
+
+.tree-count {
+  font-size: 18px;
+  color: #0f6e40;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+}
+
+.tree-total {
+  font-size: 16px;
+  color: #0f6e40;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.tree-donate-btn {
+  background: #0f6e40;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tree-donate-btn:hover {
+  background: #1bc76b;
 }
 
 .activities-container {
@@ -191,7 +253,6 @@
 
 .link-box:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.25);
 }
 
 .link-icon {
@@ -213,4 +274,26 @@
 
 .arrow-icon {
   font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-prev-button,
+  .carousel-next-button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .tree-counter {
+    gap: 10px;
+  }
+
+  .tree-btn {
+    font-size: 18px;
+    padding: 4px 10px;
+  }
+
+  .tree-donate-btn {
+    width: 100%;
+  }
 }
