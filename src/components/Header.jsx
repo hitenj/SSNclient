@@ -14,7 +14,7 @@ function Header() {
     <header className="ngo-header">
       <div className="header-container">
         <div className="logo">
-          <Link to="/" onClick={closeMenu}>Sarvartha Siddhi Foundation</Link>
+          <Link to="/" onClick={closeMenu}>SARVARTHA SIDDHI FOUNDATION</Link>
         </div>
 
         <button
@@ -26,7 +26,7 @@ function Header() {
 
         <nav className={`nav ${isOpen ? 'open' : ''}`}>
           <Link to="/about" onClick={closeMenu}>About Us</Link>
-          <Link to="/apply" onClick={closeMenu}>Member Apply</Link>
+          {/*<Link to="/apply" onClick={closeMenu}>Member Apply</Link>*/}
           <Link to="/event" onClick={closeMenu}>Upcoming Event</Link>
           <Link to="/complaint" onClick={closeMenu}>Your Problems</Link>
           <Link to="/donors" onClick={closeMenu}>List of Donors</Link>
