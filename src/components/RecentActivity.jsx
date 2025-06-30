@@ -3,6 +3,7 @@ import '../styles/RecentActivity.css';
 import { FaDonate, FaArrowRight, FaUserPlus, FaTree } from 'react-icons/fa';
 import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
 import Plantation from "../assets/Plantation.jpg";
+import { handleRazorpayPayment } from "../utils/payment";
 
 
 function RecentActivity() {
@@ -16,8 +17,12 @@ function RecentActivity() {
   };
 
   const handleDonate = () => {
-    alert(`Thank you for donating ₹${treeCount * pricePerTree} to plant ${treeCount} tree(s)!`);
-    // Optionally redirect to payment page here
+    handleRazorpayPayment({
+      amount: treeCount * pricePerTree,
+      onSuccess: (response) => {
+        console.log("Payment completed:", response);
+      },
+    });
   };
 
   const activities = [

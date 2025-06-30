@@ -1,7 +1,19 @@
 import React from 'react';
 import '../styles/Donation.css';
+import { handleRazorpayPayment } from "../utils/payment";
 
 function Donation() {
+
+  const donateNow = () => {
+    handleRazorpayPayment({
+      amount: 101,
+      onSuccess: (response) => {
+        console.log("Payment completed:", response);
+      },
+    });
+  };
+
+
   return (
     <section className="donation-section">
       <h1 className="donation-title">Support Sarvarth Siddhi</h1>
@@ -34,7 +46,7 @@ function Donation() {
       </div>
 
       <div className="donation-center">
-        <button className="donation-button">Pay Online</button>
+        <button className="donation-button" onClick={donateNow}>Pay Online</button>
       </div>
     </section>
   )
