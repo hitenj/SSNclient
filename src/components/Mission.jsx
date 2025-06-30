@@ -18,7 +18,7 @@ function Mission() {
           To create a sustainable future, nurturing our environment by following our teachings of environmental stewardship.
         </li>
         </ul>
-        <a href='#mission' className='read-more-btn'>Read More</a>
+        <a href='/about' className='read-more-btn'>Read More</a>
       </div>
       <div className="mission-icon">
         <FaHandsHelping />
