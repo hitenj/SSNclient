@@ -43,7 +43,7 @@ function RecentActivity() {
     { image: 'https://st4.depositphotos.com/9998432/22597/v/600/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg', name: 'Rajesh Jain', city: 'Agra' },
   ];
  
-  const [leftIndex, setLeftIndex] = useState(0);
+  //const [leftIndex, setLeftIndex] = useState(0);
   const [rightIndex, setRightIndex] = useState(0);
  
   //const nextLeft = () => setLeftIndex((leftIndex + 1) % carouselLeft.length)

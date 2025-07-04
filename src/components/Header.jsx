@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaBars, FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import "../styles/Header.css";
 import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
 
@@ -48,13 +48,13 @@ function Header() {
           </Link>
           <div className="mobile-header-actions">
             <div className="social-icons">
-              <a href="#">
+              <a href="https://www.facebook.com/people/Sarvarthasiddhi-Foundation/100081490568810/">
                 <FaFacebookF />
               </a>
-              <a href="#">
-                <FaTwitter />
+              <a href="https://wa.me/919149171856">
+                <FaWhatsapp />
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/sarvarthasiddhifoundation/">
                 <FaInstagram />
               </a>
             </div>
@@ -66,13 +66,13 @@ function Header() {
 
         <div className="header-actions">
           <div className="social-icons">
-            <a href="#">
+            <a href="https://www.facebook.com/people/Sarvarthasiddhi-Foundation/100081490568810/">
               <FaFacebookF />
             </a>
-            <a href="#">
-              <FaTwitter />
+            <a href="https://wa.me/919149171856">
+              <FaWhatsapp />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/sarvarthasiddhifoundation/">
               <FaInstagram />
             </a>
           </div>
