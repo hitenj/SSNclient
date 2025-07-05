@@ -4,6 +4,11 @@ import { FaDonate, FaArrowRight, FaUserPlus, FaTree } from 'react-icons/fa';
 import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
 import Plantation from "../assets/Plantation.jpg";
 import { handleRazorpayPayment } from "../utils/payment";
+import member1 from '../assets/member1.jpg';
+import member2 from '../assets/member2.jpg';
+import donor2 from '../assets/donor2.jpg';
+import donor5 from '../assets/donor5.JPG';
+import donor6 from '../assets/donor6.jpeg';
 
 
 function RecentActivity() {
@@ -39,8 +44,11 @@ function RecentActivity() {
   ];*/
  
   const carouselRight = [
-    { image: 'https://st4.depositphotos.com/9998432/24360/v/450/depositphotos_243600690-stock-illustration-person-gray-photo-placeholder-girl.jpg', name: 'Gunmala Jain', city: 'Agra' },
-    { image: 'https://st4.depositphotos.com/9998432/22597/v/600/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg', name: 'Rajesh Jain', city: 'Agra' },
+    { image: member1, name: 'Mukesh Kumar Jain', city: 'Agra' },
+    { image: member2, name: 'Deepti Jain w/o Ankur Jain', city: 'Agra' },
+    { image: donor2, name: 'Mamta Jain', city: 'Agra' },
+    { image: donor5, name: 'Hiten Jain', city: 'Noida' },
+    { image: donor6, name: 'Gunmala Jain', city: 'Agra' },
   ];
  
   //const [leftIndex, setLeftIndex] = useState(0);

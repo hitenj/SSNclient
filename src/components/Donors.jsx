@@ -12,7 +12,7 @@ const donorsData = [
   { id: 2, name: "Mamta Jain", amount: 2000, city: "Agra", mode: "Cash", image: donor2 },
   { id: 3, name: "Vartika Jain", amount: 10000, city: "Gurugram", mode: "Online", image: donor3 },
   { id: 4, name: "Sanjay Jain", amount: 10000, city: "Agra", mode: "Online", image: donor4 },
-  { id: 5, name: "Hiten Jain", amount: 1300, city: "Agra", mode: "Online", image: donor5 },
+  { id: 5, name: "Hiten Jain", amount: 1300, city: "Noida", mode: "Online", image: donor5 },
   { id: 6, name: "Gunmala Jain", amount: 3000, city: "Agra", mode: "Online", image: donor6 },
 ];
 
