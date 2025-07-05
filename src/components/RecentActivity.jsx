@@ -6,6 +6,7 @@ import Plantation from "../assets/Plantation.jpg";
 import { handleRazorpayPayment } from "../utils/payment";
 import member1 from '../assets/member1.jpg';
 import member2 from '../assets/member2.jpg';
+import donor4 from '../assets/donor4.jpg';
 import donor2 from '../assets/donor2.jpg';
 import donor5 from '../assets/donor5.JPG';
 import donor6 from '../assets/donor6.jpeg';
@@ -46,6 +47,7 @@ function RecentActivity() {
   const carouselRight = [
     { image: member1, name: 'Mukesh Kumar Jain', city: 'Agra' },
     { image: member2, name: 'Deepti Jain w/o Ankur Jain', city: 'Agra' },
+    { image: donor4, name: 'Sanjay Jain', city: 'Agra' },
     { image: donor2, name: 'Mamta Jain', city: 'Agra' },
     { image: donor5, name: 'Hiten Jain', city: 'Noida' },
     { image: donor6, name: 'Gunmala Jain', city: 'Agra' },
