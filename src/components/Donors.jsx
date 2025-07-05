@@ -1,11 +1,20 @@
 import React, {useState} from 'react'; 
 import '../styles/Donors.css';
+import donor1 from '../assets/donor1.jpg';
+import donor2 from '../assets/donor2.jpg';
+import donor3 from '../assets/donor3.jpg';
+import donor4 from '../assets/donor4.jpg';
+import donor5 from '../assets/donor5.JPG';
+import donor6 from '../assets/donor6.jpeg';
 
 const donorsData = [
-    { id: 1, name: "Ramesh Jain", amount: 5000, city: "Mumbai", mode: "Online", image: "https://st4.depositphotos.com/9998432/22597/v/600/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg" },
-    { id: 2, name: "Sunita Shah", amount: 2000, city: "Ahmedabad", mode: "Cash", image: "https://st4.depositphotos.com/9998432/24360/v/450/depositphotos_243600690-stock-illustration-person-gray-photo-placeholder-girl.jpg" },
-    { id: 3, name: "Mahesh Mehta", amount: 10000, city: "Delhi", mode: "Online", image: "https://st4.depositphotos.com/9998432/22597/v/600/depositphotos_225976914-stock-illustration-person-gray-photo-placeholder-man.jpg" },
-  ];
+  { id: 1, name: "Piyush Jain", amount: 5000, city: "Gurugram", mode: "Online", image: donor1 },
+  { id: 2, name: "Mamta Jain", amount: 2000, city: "Agra", mode: "Cash", image: donor2 },
+  { id: 3, name: "Vartika Jain", amount: 10000, city: "Gurugram", mode: "Online", image: donor3 },
+  { id: 4, name: "Sanjay Jain", amount: 10000, city: "Agra", mode: "Online", image: donor4 },
+  { id: 5, name: "Hiten Jain", amount: 1300, city: "Agra", mode: "Online", image: donor5 },
+  { id: 6, name: "Gunmala Jain", amount: 3000, city: "Agra", mode: "Online", image: donor6 },
+];
 
 function Donors() {
 
