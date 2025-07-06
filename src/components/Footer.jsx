@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowUp, FaFacebookF, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaArrowUp, FaFacebookF, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import '../styles/Footer.css';
 import { Link } from 'react-router-dom';
 
@@ -20,9 +20,9 @@ function Footer() {
  
           <div className="footer-social-icons">
             <h4>Follow Us</h4>
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaInstagram /></a>
+            <a href="https://www.facebook.com/people/Sarvarthasid2dhi-Foundation/100081490568810/"><FaFacebookF /></a>
+            <a href="https://wa.me/919149171856"><FaWhatsapp /></a>
+            <a href="https://www.instagram.com/sarvarthasiddhifoundation/"><FaInstagram /></a>
           </div>
         </div>
  
