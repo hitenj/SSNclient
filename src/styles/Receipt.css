@@ -1,0 +1,231 @@
+.receipt {
+  width: 8in;
+  min-height: 6in;
+  background: #ffffff;
+  margin: 0.5in auto;
+  padding: 0.3in;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 10pt;
+  color: #333333;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3in;
+  background: #e8f5e9;
+  padding: 0.1in 0.2in;
+  border-radius: 0.05in;
+}
+
+.logo-image {
+  height: 0.9in;
+  width: auto;
+}
+
+.header-text {
+  text-align: center;
+}
+
+.org-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 0.05in;
+}
+
+.tagline {
+  font-size: 10px;
+  color: #388e3c;
+}
+
+
+.receipt-title {
+  font-size: 14pt;
+  text-align: center;
+  font-weight: bold;
+  color: #1b5e20;
+  margin-top: 0.2in;
+  margin-bottom: 0.15in;
+  border-bottom: 2px solid #81c784;
+  display: inline-block;
+  padding-bottom: 0.05in;
+}
+
+.section {
+  margin-bottom: 0.2in;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 0.08in;
+  font-size: 11pt;
+  border-bottom: 1px solid #c8e6c9;
+  padding-bottom: 0.03in;
+}
+
+.donor-info {
+  display: grid;
+  grid-template-columns: 1.2in auto;
+  gap: 0.05in 0.1in;
+  margin-bottom: 0.1in;
+}
+
+.inline-pair {
+  display: grid;
+  grid-template-columns: 1.2in auto 1.2in auto;
+  gap: 0.05in 0.1in;
+  margin-bottom: 0.1in;
+}
+
+.label {
+  font-weight: 600;
+  color: #1b5e20;
+}
+
+.value {
+  display: inline-block;
+  padding-bottom: 0.02in;
+  background-image: repeating-linear-gradient(
+    to right,
+    #90a4ae 0,
+    #90a4ae 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  background-position: 0 100%;
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+  line-height: 1.2;
+}
+
+
+.amount-80g-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15in;
+  margin-top: 0.2in;
+  margin-bottom: 0.2in;
+}
+
+.amount-section {
+  background: #e8f5e9;
+  border-radius: 6px;
+  padding: 0.15in;
+  font-size: 10pt;
+}
+
+.amount-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1in;
+}
+
+.amount-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount-label {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.amount-value {
+  border-bottom: 1px dashed #90a4ae;
+  text-align: right;
+  min-height: 0.18in;
+  padding: 0.02in 0;
+}
+
+.amount-number {
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+.certification {
+  background: #f1f8e9;
+  border-radius: 6px;
+  padding: 0.15in;
+  font-size: 10pt;
+}
+
+.signature {
+  text-align: center;
+  margin-top: 0.3in;
+  font-size: 10pt;
+}
+
+.signature-line {
+  width: 1.5in;
+  border-top: 1px solid #81c784;
+  margin: 0.1in auto;
+}
+
+.footer {
+  font-size: 9pt;
+  color: #546e7a;
+  border-top: 1px solid #c8e6c9;
+  padding-top: 0.1in;
+  margin-top: 0.3in;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2in;
+}
+
+.footer-title {
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 10pt;
+  margin-bottom: 0.05in;
+}
+
+.footer-value {
+  border-bottom: 1px dashed #90a4ae;
+  min-height: 0.18in;
+  margin-bottom: 0.05in;
+}
+
+.note {
+  font-size: 8pt;
+  text-align: center;
+  margin-top: 0.1in;
+  font-style: italic;
+}
+
+.receipt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.download-btn,
+.whatsapp-btn {
+  background: #2e7d32;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover,
+.whatsapp-btn:hover {
+  background: #1b5e20;
+}
+

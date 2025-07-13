@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarvarthasiddhi Foundation - Donation Receipt</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: #f5f5f5;
+        }
+        
+        .receipt {
+            width: 8in;
+            height: 6in;
+            background: white;
+            padding: 0.15in;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 0.1in;
+        }
+        
+        .org-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 0.05in;
+        }
+        
+        .tagline {
+            font-size: 10px;
+            color: #388e3c;
+            margin-bottom: 0.1in;
+        }
+        
+        .receipt-title {
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+            color: #1b5e20;
+            margin-bottom: 0.1in;
+            border-bottom: 1px solid #81c784;
+            padding-bottom: 0.05in;
+        }
+        
+        .section {
+            margin-bottom: 0.08in;
+            font-size: 9px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 0.05in;
+            font-size: 10px;
+        }
+        
+        .donor-info {
+            display: grid;
+            grid-template-columns: 0.7in 1fr;
+            gap: 0.05in 0.08in;
+        }
+        
+        .inline-pair {
+            display: grid;
+            grid-template-columns: 0.7in 1fr 0.7in 1fr;
+            gap: 0.05in 0.08in;
+        }
+        
+        .label {
+            font-weight: 500;
+        }
+        
+        .value {
+            border-bottom: 1px dashed #90a4ae;
+            min-height: 0.18in;
+        }
+        
+        .amount-80g-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.1in;
+            margin: 0.1in 0;
+        }
+        
+        .amount-section {
+            padding: 0.08in;
+            background: #e8f5e9;
+            border-radius: 0.03in;
+            font-size: 9px;
+        }
+        
+        .amount-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 0.05in;
+        }
+        
+        .amount-row {
+            display: flex;
+            align-items: center;
+            gap: 0.1in;
+        }
+        
+        .amount-label {
+            font-weight: 500;
+            min-width: 0.9in;
+        }
+        
+        .amount-value {
+            border-bottom: 1px dashed #90a4ae;
+            flex-grow: 1;
+            min-height: 0.18in;
+        }
+        
+        .amount-number {
+            font-weight: bold;
+            color: #1b5e20;
+        }
+        
+        .certification {
+            font-size: 9px;
+            background: #f1f8e9;
+            padding: 0.08in;
+            border-radius: 0.03in;
+        }
+        
+        .signature {
+            text-align: center;
+            margin-top: 0.15in;
+            padding-top: 0.08in;
+            font-size: 9px;
+        }
+        
+        .signature-line {
+            width: 1.2in;
+            border-top: 1px solid #a5d6a7;
+            margin: 0.05in auto;
+        }
+        
+        .footer {
+            font-size: 8px;
+            color: #546e7a;
+            position: absolute;
+            bottom: 0.15in;
+            left: 0.15in;
+            right: 0.15in;
+            border-top: 1px solid #c8e6c9;
+            padding-top: 0.08in;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.15in;
+        }
+        
+        .footer-title {
+            font-weight: bold;
+            color: #2e7d32;
+            font-size: 9px;
+        }
+        
+        .footer-value {
+            border-bottom: 1px dashed #90a4ae;
+            min-height: 0.18in;
+            margin-top: 0.03in;
+        }
+        
+        .note {
+            font-size: 7px;
+            text-align: center;
+            margin-top: 0.08in;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt">
+        <div class="header">
+            <div class="org-name">Sarvarthasiddhi Foundation</div>
+            <div class="tagline">LIVE AND LET LIVE</div>
+        </div>
+        
+        <div class="receipt-title">DONATION RECEIPT</div>
+        
+        <div class="section">
+            <div class="section-title">Donor Information</div>
+            <div class="inline-pair">
+                <div class="label">Receipt No:</div>
+                <div class="value"></div>
+                <div class="label">Date:</div>
+                <div class="value"></div>
+            </div>
+            <div class="donor-info">
+                <div class="label">Donor Name:</div>
+                <div class="value"></div>
+                <div class="label">Address:</div>
+                <div class="value"></div>
+                <div class="label">Email:</div>
+                <div class="value"></div>
+            </div>
+            <div class="inline-pair">
+                <div class="label">Phone:</div>
+                <div class="value"></div>
+                <div class="label">PAN:</div>
+                <div class="value"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Transaction Details</div>
+            <div class="donor-info">
+                <div class="label">Payment Ref:</div>
+                <div class="value"></div>
+                <div class="label">Bank Name:</div>
+                <div class="value"></div>
+                <div class="label">Purpose:</div>
+                <div class="value"></div>
+                <div class="label">Transaction ID:</div>
+                <div class="value"></div>
+            </div>
+        </div>
+        
+        <!-- Combined Amount and 80G Section -->
+        <div class="amount-80g-row">
+            <div class="amount-section">
+                <div class="amount-fields">
+                    <div class="amount-row">
+                        <div class="amount-label">Amount in Rupees:</div>
+                        <div class="amount-value amount-number"></div>
+                    </div>
+                    <div class="amount-row">
+                        <div class="amount-label">Amount in Words:</div>
+                        <div class="amount-value"></div>
+                    </div>
+                    <div class="amount-row">
+                        <div class="amount-label"></div>
+                        <div class="amount-value"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="certification">
+                <div class="section-title">80G Tax Exemption</div>
+                <div class="donor-info">
+                    <div class="label">Reg. No:</div>
+                    <div class="value"></div>
+                    <div class="label">Dated:</div>
+                    <div class="value"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="signature">
+            <div class="signature-line"></div>
+            <div>Authorized Signatory</div>
+            <div>Sarvarthasiddhi Foundation</div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-title">Registered Office</div>
+                    <div class="footer-value"></div>
+                    <div class="footer-value"></div>
+                </div>
+                <div>
+                    <div class="footer-title">Contact Information</div>
+                    <div class="footer-value"></div>
+                    <div class="footer-value"></div>
+                </div>
+            </div>
+            <div class="note">
+                This is a computer generated receipt
+            </div>
+        </div>
+    </div>
+</body>
+</html>

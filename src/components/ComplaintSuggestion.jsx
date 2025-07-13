@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/ComplaintSuggestion.css';
+import axios from 'axios';
 
 function ComplaintSuggestion() {
   const [formData, setFormData] = useState({
@@ -20,11 +21,19 @@ function ComplaintSuggestion() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert('Your complaint/suggestion has been registered!');
-  };
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/complaints',
+        formData);
+      alert('Form submitted successfully!');
+      console.log(res.data);
+      }
+    catch (err) {
+      console.error(err);
+      alert('Error submitting form');
+    }};
 
   return (
     <section className="complaint-section">

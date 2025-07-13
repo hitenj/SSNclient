@@ -6,7 +6,7 @@ function SignUp() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Create Account</h2>
+        <h2>Create Coordinator Account</h2>
         <form>
           <input type="text" placeholder="Full Name" required />
           <input type="text" placeholder="Mobile Number" required />

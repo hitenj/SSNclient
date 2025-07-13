@@ -44,7 +44,7 @@ function Header() {
             CrowdFunding
           </Link>
           <Link to="/login" onClick={closeMenu}>
-            Login
+            Coordinator Login
           </Link>
           <div className="mobile-header-actions">
             <div className="social-icons">

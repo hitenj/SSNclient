@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/UpcomingEvents.css';
 import Plantation from "../assets/Plantation.jpg";
+import axios from 'axios';
 
 function UpcomingEvents() {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -38,19 +39,26 @@ function UpcomingEvents() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Booking Data:", formData, "For Event:", selectedEvent);
-    alert(`Booking confirmed for ${selectedEvent}!`);
-    setSelectedEvent(null);
-    setFormData({
-      fullName: '',
-      city: '',
-      mobile: '',
-      isTeamMember: 'no',
-      memberId: ''
+    try {
+      const res = await axios.post('http://localhost:5000/api/bookSeat',
+        formData);
+      alert(`Booking confirmed for ${selectedEvent}!`);
+      console.log("Booking Data:", formData, "For Event:", selectedEvent);
+      setSelectedEvent(null);
+      setFormData({
+        fullName: '',
+        city: '',
+        mobile: '',
+        isTeamMember: 'no',
+        memberId: '',
     });
-  };
+      }
+    catch (err) {
+      console.error(err);
+      alert('Error submitting form');
+    }};
 
   return (
     <section className="upcoming-events">

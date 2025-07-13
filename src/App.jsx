@@ -14,6 +14,7 @@ import CrowdFunding from './components/CrowdFunding';
 import RegisterCampaign from './components/RegisterCampaign';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Receipt from './components/Receipt';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path='/apply' element={<MemberApply />} />
           <Route path='/event' element={<UpcomingEvents />} />
           <Route path='/donate' element={<Donation />} />
+          <Route path='/receipt' element={<Receipt />} />
           <Route path='/complaint' element={<ComplaintSuggestion />} />
           <Route path='/donors' element={<Donors />} />
           <Route path='/crowd-funding' element={<CrowdFunding />} />
