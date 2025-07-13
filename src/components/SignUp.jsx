@@ -24,10 +24,10 @@ function SignUp() {
         <p className="auth-redirect">
           Already have an account? <Link to="/login">Login</Link>
         </p>
-        <div className="google-auth">
+        {/* <div className="google-auth">
           <p>Or sign up with</p>
           <button className="google-btn">Sign up with Google</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ function Login() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Coordinator Login</h2>
+        <h2>Coordinator/Admin Login</h2>
         <form>
           <input type="text" placeholder="Email or Mobile" required />
           <input type="password" placeholder="Password" required />
@@ -15,10 +15,10 @@ function Login() {
         <p className="auth-redirect">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
-        <div className="google-auth">
+        {/* <div className="google-auth">
           <p>Or login with</p>
           <button className="google-btn">Login with Google</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

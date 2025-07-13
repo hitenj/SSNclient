@@ -8,7 +8,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import "../styles/Header.css";
-import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
+import PlantLogo from "../assets/logo-bg.png";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +24,10 @@ function Header() {
           className="logo"
           style={{ display: "flex", alignItems: "center", gap: "10px" }}
         >
-          <PlantLogo className="plant-logo" />
+          <img src={PlantLogo} alt="Sarvartha Siddhi Foundation logo" className="plant-logo" />
+
           <Link to="/" onClick={closeMenu} className="logo-text">
-            <span className="full-name">SARVARTHA SIDDHI FOUNDATION</span>
+            <span className="full-name">SARVARTHASIDDHI FOUNDATION</span>
             <span className="short-name">SARVARTHA SIDDHI</span>
           </Link>
         </div>
