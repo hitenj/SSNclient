@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import {
+  FaBars,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
 import "../styles/Header.css";
 import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
 
@@ -14,7 +20,10 @@ function Header() {
   return (
     <header className="ngo-header">
       <div className="header-container">
-        <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div
+          className="logo"
+          style={{ display: "flex", alignItems: "center", gap: "10px" }}
+        >
           <PlantLogo className="plant-logo" />
           <Link to="/" onClick={closeMenu} className="logo-text">
             <span className="full-name">SARVARTHA SIDDHI FOUNDATION</span>
@@ -30,21 +39,21 @@ function Header() {
           <Link to="/about" onClick={closeMenu}>
             About Us
           </Link>
+          <Link to="/crowd-funding" onClick={closeMenu}>
+            CrowdFunding
+          </Link>
           {/*<Link to="/apply" onClick={closeMenu}>Member Apply</Link>*/}
           <Link to="/event" onClick={closeMenu}>
             Upcoming Event
           </Link>
-          <Link to="/complaint" onClick={closeMenu}>
-            Your Problems
-          </Link>
           <Link to="/donors" onClick={closeMenu}>
             List of Donors
           </Link>
-          <Link to="/crowd-funding" onClick={closeMenu}>
-            CrowdFunding
+          <Link to="/complaint" onClick={closeMenu}>
+            Need Help?
           </Link>
           <Link to="/login" onClick={closeMenu}>
-            Coordinator Login
+            Login
           </Link>
           <div className="mobile-header-actions">
             <div className="social-icons">

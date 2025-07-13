@@ -2,14 +2,16 @@ import React from "react";
 import plantationImage from "../assets/plantation-banner.jpg"; // Replace with your actual image path
 import "../styles/Banner.css";
 import { handleRazorpayPayment } from "../utils/payment";
+import { useNavigate } from "react-router-dom";
 
 function HeaderBanner() {
+  const navigate = useNavigate();
 
-    const donateNow = () => {
-    handleRazorpayPayment({
-      amount: 101,
-      onSuccess: (response) => {
-        console.log("Payment completed:", response);
+  const donateNow = () => {
+    navigate("/donate", {
+      state: {
+        prefilledAmount: 101,
+        prefilledPurpose: 'Trees Plantation Mission',
       },
     });
   };
@@ -26,9 +28,7 @@ function HeaderBanner() {
     >
       <div className="banner-content">
         <h1 className="banner-title">SARVARTHA SIDDHI FOUNDATION</h1>
-        <p className="banner-subtitle">
-          Plant one tree by donating just ₹101
-        </p>
+        <p className="banner-subtitle">Plant one tree by donating just ₹101</p>
         <p className="banner-support">
           Together, let’s build a greener, healthier planet.
         </p>

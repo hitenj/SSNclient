@@ -4,6 +4,7 @@ import { FaDonate, FaArrowRight, FaUserPlus, FaTree } from 'react-icons/fa';
 import { ReactComponent as PlantLogo } from "../assets/PlantLogo.svg";
 import Plantation from "../assets/Plantation.jpg";
 import { handleRazorpayPayment } from "../utils/payment";
+import { useNavigate } from 'react-router-dom';
 import member1 from '../assets/member1.jpg';
 import member2 from '../assets/member2.jpg';
 import donor4 from '../assets/donor4.jpg';
@@ -22,14 +23,16 @@ function RecentActivity() {
     if (treeCount > 1) setTreeCount(treeCount - 1);
   };
 
-  const handleDonate = () => {
-    handleRazorpayPayment({
-      amount: treeCount * pricePerTree,
-      onSuccess: (response) => {
-        console.log("Payment completed:", response);
-      },
-    });
-  };
+  const navigate = useNavigate();
+
+const handleDonate = () => {
+  navigate('/donate', {
+    state: {
+      prefilledAmount: treeCount * pricePerTree,
+      prefilledPurpose: 'Trees Plantation Mission',
+    },
+  });
+};
 
   const activities = [
     {

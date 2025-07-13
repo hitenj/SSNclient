@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import "../styles/Donation.css";
 import { handleRazorpayPayment } from "../utils/payment";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
 function Donation() {
   const navigate = useNavigate();
 
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     name: "",
     city: "",
     whatsapp: "",
-    amount: "",
+    amount: location.state?.prefilledAmount?.toString() || "",
     pan: "",
   });
 
@@ -43,19 +45,23 @@ function Donation() {
       onSuccess: (paymentResponse) => {
         console.log("Payment completed:", paymentResponse);
         const donationData = {
-    ...formData,
-    paymentId: paymentResponse.razorpay_payment_id,
-    orderId: paymentResponse.razorpay_order_id,
-    signature: paymentResponse.razorpay_signature,
-    status: "success",
-  };
+          ...formData,
+          paymentId: paymentResponse.razorpay_payment_id,
+          orderId: paymentResponse.razorpay_order_id,
+          signature: paymentResponse.razorpay_signature,
+          status: "success",
+        };
         try {
-          axios.post("http://localhost:5000/api/donations", donationData);
-          console.log('Donation saved to DB!');
+          axios.post(
+            `${process.env.REACT_APP_API_URL}/api/donations`,
+            donationData
+          );
+          console.log("Donation saved to DB!");
           navigate("/receipt", {
             state: {
               donorDetails: formData,
               paymentDetails: paymentResponse,
+              purpose: location.state?.prefilledPurpose,
             },
           });
         } catch (error) {
@@ -115,6 +121,7 @@ function Donation() {
             onChange={handleChange}
             required
             min="1"
+            readOnly={!!location.state?.prefilledAmount}
           />
         </div>
 

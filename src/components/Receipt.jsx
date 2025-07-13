@@ -7,11 +7,12 @@ import html2pdf from "html2pdf.js";
 function Receipt() {
   const location = useLocation();
 
-  let donorDetails, paymentDetails;
+  let donorDetails, paymentDetails, purpose;
 
   if (location.state) {
     donorDetails = location.state.donorDetails;
     paymentDetails = location.state.paymentDetails;
+    purpose = location.state.purpose || "Donation";
   } else {
     donorDetails = null;
     paymentDetails = null;
@@ -111,7 +112,7 @@ function Receipt() {
             <div className="label">Bank Name:</div>
             <div className="value">Razorpay Payment Gateway</div>
             <div className="label">Purpose:</div>
-            <div className="value">Donation</div>
+            <div className="value">{purpose}</div>
             <div className="label">Transaction ID:</div>
             <div className="value">{transactionId}</div>
           </div>
@@ -152,11 +153,11 @@ function Receipt() {
           </div>
         </div>
 
-        <div className="signature">
+        {/* <div className="signature">
           <div className="signature-line"></div>
           <div>Authorized Signatory</div>
           <div>Sarvarthasiddhi Foundation</div>
-        </div>
+        </div> */}
 
         <div className="footer">
           <div className="footer-grid">

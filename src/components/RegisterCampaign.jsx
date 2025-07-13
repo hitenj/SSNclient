@@ -95,11 +95,11 @@ function RegisterCampaign() {
     }
 
     const res = await axios.post(
-      'http://localhost:5000/api/registerCampaign',
+      `${process.env.REACT_APP_API_URL}/api/registerCampaign`,
       data,
       { headers: { 'Content-Type': 'multipart/form-data' } }
     );
-    alert('Thank you for your question!');
+    alert('We will review it and get back to you shortly!');
     console.log(res.data);
   } catch (err) {
     console.error(err);
