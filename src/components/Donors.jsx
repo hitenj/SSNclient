@@ -41,7 +41,7 @@ function Donors() {
           <div key={donor._id} className="donor-card">
             <h2>{donor.name}</h2>
             <p>📍 {donor.city}</p>
-            <p>📞 {donor.whatsapp}</p>
+            <p>📞 {donor.whatsapp?.replace(/(\d{2})\d{4}(\d{2})/, '$1****$2')}</p>
             <p>💸 ₹ {parseFloat(donor.amount).toFixed(2)}</p>
             <p>🗓 {new Date(donor.createdAt).toLocaleDateString('en-IN')}</p>
           </div>
