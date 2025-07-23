@@ -12,7 +12,8 @@ export const handleRazorpayPayment = async ({
   }
 
   const options = {
-    key: "rzp_test_Z8Y6NJS5MmZIVK",
+    key: "rzp_live_bXpv3XWJnSrVZx",
+    // key: "rzp_test_Z8Y6NJS5MmZIVK",
     amount: amount * 100,
     currency: "INR",
     name: "Sarvarth Siddhi Foundation",
