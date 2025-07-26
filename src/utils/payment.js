@@ -14,7 +14,7 @@ export const handleRazorpayPayment = async ({ amount, onSuccess, donorDetails })
       amount: amount * 100, // in paise
     });
 
-    const { order } = orderResponse.data;
+    const order = orderResponse.data;
 
     // 2. Setup Razorpay options
     const options = {
