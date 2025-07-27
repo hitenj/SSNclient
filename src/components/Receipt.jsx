@@ -50,144 +50,129 @@ function Receipt() {
   }
 
   const handleDownload = () => {
-  const element = document.querySelector(".receipt");
-  const opt = {
-    margin:       0.3,
-    filename:     `Receipt-${receiptNumber}.pdf`,
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2 },
-    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    const element = document.querySelector(".receipt");
+    const opt = {
+      margin: 0.3,
+      filename: `Receipt-${receiptNumber}.pdf`,
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+    html2pdf().set(opt).from(element).save();
   };
-  html2pdf().set(opt).from(element).save();
-};
 
   return (
     <>
       <div className="receipt">
+        <img src={logo} className="background-logo" alt="logo" />
         <div className="header">
-          <img
-            src={logo}
-            alt="Sarvarthasiddhi Foundation Logo"
-            className="logo-image"
-          />
-          <div className="header-text">
-            <div className="org-name">Sarvarthasiddhi Foundation</div>
-            <div className="tagline">LIVE AND LET LIVE</div>
+          <div className="org-name">SARVARTHA SIDDHI FOUNDATION</div>
+          <div className="org-info">
+            Registered under Section 8 of the Companies Act 2013
+            <br />
+            39/22A/1 Old Idgah Colony, Opp. Satsang Bhawan, Agra-282001, Uttar
+            Pradesh, India <br /> CIN: U94910UP2025NPL224635 | Mobile: +91 97594
+            97594 | Email: sarvarthasiddhi@gmail.com
           </div>
         </div>
 
-        <div className="receipt-title">DONATION RECEIPT</div>
+        <div className="green-strip">DONATION RECEIPT</div>
 
-        <div className="section">
-          <div className="section-title">Donor Information</div>
-          <div className="inline-pair">
-            <div className="label">Receipt No:</div>
-            <div className="value">{receiptNumber}</div>
-            <div className="label">Date:</div>
-            <div className="value">
+        <div className="donation-grid">
+          <div className="left-col">
+            <p>
+              <strong>Receipt No.:</strong> {receiptNumber}
+            </p>
+            <p>
+              <strong>Received from:</strong> {donorDetails.name}
+            </p>
+            <p>
+              <strong>Address:</strong> {donorDetails.city || "-"}
+            </p>
+            {/* <p><strong>Email:</strong> -</p> */}
+            <p>
+              <strong>Amount:</strong> ₹{amountValue.toFixed(2)}
+            </p>
+            <p>
+              <strong>In Words:</strong> {amountInWords}
+            </p>
+          </div>
+          <div className="right-col">
+            <p>
+              <strong>Date:</strong>{" "}
               {paymentDetails.created_at
                 ? formatDate(paymentDetails.created_at)
                 : formatDate(Date.now() / 1000)}
-            </div>
-          </div>
-          <div className="inline-pair">
-            <div className="label">Donor Name:</div>
-            <div className="value">{donorDetails.name}</div>
-            <div className="label">City:</div>
-            <div className="value">{donorDetails.city || "-"}</div>
-          </div>
-          <div className="inline-pair">
-            <div className="label">Phone (WhatsApp):</div>
-            <div className="value">{donorDetails.whatsapp}</div>
-            <div className="label">PAN:</div>
-            <div className="value">{donorDetails.pan || "-"}</div>
-          </div>
-        </div>
-
-        <div className="section">
-          <div className="section-title">Transaction Details</div>
-          <div className="donor-info">
-            <div className="label">Payment Ref:</div>
-            <div className="value">{paymentDetails.razorpay_payment_id}</div>
-            <div className="label">Bank Name:</div>
-            <div className="value">Razorpay Payment Gateway</div>
-            <div className="label">Purpose:</div>
-            <div className="value">{purpose}</div>
-            <div className="label">Transaction ID:</div>
-            <div className="value">{transactionId}</div>
+            </p>
+            <p>
+              <strong>Contact No.:</strong> {donorDetails.whatsapp}
+            </p>
+            <p>
+              <strong>PAN :</strong> {donorDetails.pan ? "PAN" : "-"}
+            </p>
+            <p>
+              <strong>Transaction ID:</strong> {transactionId}
+            </p>
+            <p>
+              <strong>Purpose:</strong> {purpose}
+            </p>
           </div>
         </div>
 
-        <div className="amount-80g-row">
-          <div className="amount-section">
-            <div className="amount-fields">
-              <div className="amount-row">
-                <div className="amount-label">Amount in Rupees:</div>
-                <div className="amount-value amount-number">
-                  ₹ {amountValue.toFixed(2)}
-                </div>
-              </div>
-              <div className="amount-row">
-                <div className="amount-label">Amount in Words:</div>
-                <div className="amount-value">{amountInWords}</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="certification">
-            <div className="section-title">80G Tax Exemption</div>
-
-            <div className="donor-info">
-              <div className="label">Reg. No:</div>
-              <div className="value">ABQCS3285BF20251</div>
-
-              <div className="label">Dated:</div>
-              <div className="value">17-06-2025</div>
-
-              <div className="label">Approval Under:</div>
-              <div className="value">
-                12-Sub-clause (A) of clause (iv) of first proviso to sub-section
-                (5) of section 80G
-              </div>
-            </div>
-          </div>
+        <div className="tax-info">
+          <p>
+            <strong>
+              Eligble for deduction under section 80G of Income Tax Act 1961
+            </strong>
+          </p>
+          <p>
+            Our Income Tax Registration No. u/s 80G(5):{" "}
+            <strong>ABQCS3285BF20251</strong> | Date: 17/06/2025
+          </p>
+          <p>
+            Validity Period: <strong>AY 2026–27 to AY 2027–28</strong>
+          </p>
+          <p>
+            Our Income Tax PAN : <strong>ABQCS3285B</strong> | Our Income Tax
+            TAN: <strong>AGSR23075D</strong>
+          </p>
+          <p>
+            Our Income Tax Unique Registration No. u/s 12A:{" "}
+            <strong>ABQCS3285BE20251</strong> | Date: 17/06/2025
+          </p>
         </div>
 
-        {/* <div className="signature">
-          <div className="signature-line"></div>
-          <div>Authorized Signatory</div>
-          <div>Sarvarthasiddhi Foundation</div>
-        </div> */}
-
-        <div className="footer">
-          <div className="footer-grid">
-            <div>
-              <div className="footer-title">Registered Office</div>
-              <div className="footer-value">Old Idgah Colony</div>
-              <div className="footer-value">Agra, UP</div>
-            </div>
-            <div>
-              <div className="footer-title">Contact Information</div>
-              <div className="footer-value">Phone: +91 97594 97594</div>
-              <div className="footer-value">
-                Email: sarvarthasiddhifoundation@gmail.com
-              </div>
-            </div>
-          </div>
-          <div className="note">This is a computer generated receipt.</div>
+        <div className="bank-details">
+          <span>
+            <strong>Bank:</strong> Axis Bank
+          </span>
+          <span>
+            <strong>Account No.:</strong> 925010028006852
+          </span>
+          <span>
+            <strong>Branch:</strong> Idgah Colony, Agra
+          </span>
+          <span>
+            <strong>IFSC:</strong> UTIB0004369
+          </span>
         </div>
+        <div className="footer-note">
+        <em>
+          This is a system-generated receipt and does not require a physical
+          signature.
+        </em>
+      </div>
       </div>
 
       <div className="receipt-actions">
         <button onClick={handleDownload} className="download-btn">
           Download Receipt PDF
         </button>
-
         <a
           href={`https://wa.me/${
             donorDetails.whatsapp
           }?text=${encodeURIComponent(
-            `🙏 Thank you for your donation to Sarvarthasiddhi Foundation!\n\nDownload your receipt here: https://yourdomain.com/receipt`
+            `🙏 Thank you for your donation to Sarvarthasiddhi Foundation!\n\nDownload your receipt here: https://sarvarthasiddhi.org/receipt`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -207,11 +192,15 @@ function generateReceiptNumber() {
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
-  const serial = Math.floor(Math.random() * 999 + 1)
-    .toString()
-    .padStart(3, "0");
 
-  return `108-${year}/${month}-${serial}`;
+  const key = `receipt-serial-${year}-${month}`;
+  let lastSerial = parseInt(localStorage.getItem(key) || "0", 10);
+  lastSerial += 1;
+  localStorage.setItem(key, lastSerial.toString());
+
+  const serial = lastSerial.toString().padStart(3, "0");
+
+  return `SSF${year}${month}${serial}`;
 }
 
 // Formats UNIX timestamp to readable date
