@@ -69,9 +69,9 @@ function Receipt() {
           <div className="org-name">SARVARTHA SIDDHI FOUNDATION</div>
           <div className="org-info">
             Registered under Section 8 of the Companies Act 2013
-            <br />
+            <br />CIN: U94910UP2025NPL224635 <br />
             39/22A/1 Old Idgah Colony, Opp. Satsang Bhawan, Agra-282001, Uttar
-            Pradesh, India <br /> CIN: U94910UP2025NPL224635 | Mobile: +91 97594
+            Pradesh, India <br />  Mobile: +91 97594
             97594 | Email: sarvarthasiddhi@gmail.com
           </div>
         </div>
