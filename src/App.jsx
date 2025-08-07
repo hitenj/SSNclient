@@ -15,6 +15,9 @@ import RegisterCampaign from './components/RegisterCampaign';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Receipt from './components/Receipt';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TnC from './components/TnC';
+import RefundPolicy from './components/RefundPolicy';
 
 
 function App() {
@@ -35,6 +38,9 @@ function App() {
           <Route path='/register-campaign' element={<RegisterCampaign />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path='/terms-and-conditions' element={<TnC />} />
+          <Route path='/refund-policy' element={<RefundPolicy />} />
         </Routes>
         <Footer />
       </Router>
