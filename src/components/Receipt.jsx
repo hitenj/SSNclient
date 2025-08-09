@@ -43,7 +43,7 @@ function Receipt() {
   let transactionId = "-";
   if (paymentDetails) {
     transactionId =
-      paymentDetails.razorpay_payment_id + "_" + paymentDetails.razorpay_order_id;
+      paymentDetails.razorpay_payment_id;
   }
 
   const handleDownload = () => {
