@@ -17,6 +17,8 @@ function Donation() {
     pan: "",
   });
 
+  const [purpose, setPurpose] = useState("Corpus - Plantation");
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -31,7 +33,8 @@ function Donation() {
       !formData.name ||
       !formData.city ||
       !formData.whatsapp ||
-      !formData.amount
+      !formData.amount ||
+      !formData.purpose
     ) {
       alert(
         "Please fill all required fields: Name, City, WhatsApp, and Amount."
@@ -73,7 +76,7 @@ function Donation() {
 
   return (
     <section className="donation-section">
-      <h1 className="donation-title">Support Sarvarth Siddhi</h1>
+      <h1 className="donation-title">Support SarvarthaSiddhi</h1>
       <p className="donation-subtitle">
         Your contribution helps sustain our mission and services.
       </p>
@@ -110,6 +113,28 @@ function Donation() {
             pattern="[0-9]{10,15}"
             title="Please enter a valid WhatsApp number (digits only)"
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="donationPurpose">Purpose of Donation:</label>
+          <select
+            id="donationPurpose"
+            name="purpose"
+            value={purpose}
+            onChange={(e) => setPurpose(e.target.value)}
+          >
+            <optgroup label="Corpus">
+              <option value="Corpus - Plantation">Plantation</option>
+              <option value="Corpus - Medical Aid">Medical Aid</option>
+              <option value="Corpus - Education">Education</option>
+              <option value="Corpus - Women Empowerment">
+                Women Empowerment
+              </option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="Other - General Donation">General Donation</option>
+            </optgroup>
+          </select>
         </div>
 
         <div className="form-group">
