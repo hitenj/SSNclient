@@ -17,7 +17,7 @@ function Home() {
         <RecentActivity />
         <Mission />
         <Objectives />
-        <Crowdfunding preview={true} />
+        {/* <Crowdfunding preview={true} /> */}
         <Gallery />
       </>
     );

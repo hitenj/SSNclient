@@ -12,7 +12,6 @@ function Receipt() {
   if (location.state) {
     donorDetails = location.state.donorDetails;
     paymentDetails = location.state.paymentDetails;
-    purpose = location.state.purpose || "Donation";
   } else {
     donorDetails = null;
     paymentDetails = null;
@@ -42,11 +41,9 @@ function Receipt() {
 
   // Transaction ID if available
   let transactionId = "-";
-  if (paymentDetails.acquirer_data) {
+  if (paymentDetails) {
     transactionId =
-      paymentDetails.acquirer_data.upi_transaction_id ||
-      paymentDetails.acquirer_data.arn ||
-      "-";
+      paymentDetails.razorpay_payment_id + "_" + paymentDetails.razorpay_order_id;
   }
 
   const handleDownload = () => {
@@ -114,7 +111,7 @@ function Receipt() {
               <strong>Transaction ID:</strong> {transactionId}
             </p>
             <p>
-              <strong>Purpose:</strong> {purpose}
+              <strong>Purpose:</strong> {donorDetails.purpose}
             </p>
           </div>
         </div>

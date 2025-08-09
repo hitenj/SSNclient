@@ -40,9 +40,9 @@ function Header() {
           <Link to="/about" onClick={closeMenu}>
             About Us
           </Link>
-          <Link to="/crowd-funding" onClick={closeMenu}>
+          {/* <Link to="/crowd-funding" onClick={closeMenu}>
             CrowdFunding
-          </Link>
+          </Link> */}
           {/*<Link to="/apply" onClick={closeMenu}>Member Apply</Link>*/}
           <Link to="/event" onClick={closeMenu}>
             Upcoming Event

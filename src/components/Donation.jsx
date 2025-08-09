@@ -15,9 +15,8 @@ function Donation() {
     whatsapp: "",
     amount: location.state?.prefilledAmount?.toString() || "",
     pan: "",
+    purpose: location.state?.prefilledPurpose || "Corpus - Plantation",
   });
-
-  const [purpose, setPurpose] = useState("Corpus - Plantation");
 
   const handleChange = (e) => {
     setFormData({
@@ -37,7 +36,7 @@ function Donation() {
       !formData.purpose
     ) {
       alert(
-        "Please fill all required fields: Name, City, WhatsApp, and Amount."
+        "Please fill all required fields: Name, City, WhatsApp, Purpose and Amount."
       );
       return;
     }
@@ -64,7 +63,6 @@ function Donation() {
             state: {
               donorDetails: formData,
               paymentDetails: paymentResponse,
-              purpose: location.state?.prefilledPurpose,
             },
           });
         } catch (error) {
@@ -120,8 +118,9 @@ function Donation() {
           <select
             id="donationPurpose"
             name="purpose"
-            value={purpose}
-            onChange={(e) => setPurpose(e.target.value)}
+            value={formData.purpose}
+            onChange={handleChange}
+            required
           >
             <optgroup label="Corpus">
               <option value="Corpus - Plantation">Plantation</option>
