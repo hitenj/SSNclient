@@ -11,7 +11,7 @@ function HeaderBanner() {
     navigate("/donate", {
       state: {
         prefilledAmount: 101,
-        prefilledPurpose: 'Trees Plantation Mission',
+        prefilledPurpose: 'Corpus - Plantation',
       },
     });
   };

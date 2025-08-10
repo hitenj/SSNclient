@@ -15,7 +15,7 @@ function Donation() {
     whatsapp: "",
     amount: location.state?.prefilledAmount?.toString() || "",
     pan: "",
-    purpose: location.state?.prefilledPurpose || "Corpus - Plantation",
+    purpose: location.state?.prefilledPurpose || "",
   });
 
   const handleChange = (e) => {
@@ -121,6 +121,7 @@ function Donation() {
             value={formData.purpose}
             onChange={handleChange}
             required
+            readOnly={!!location.state?.prefilledPurpose}
           >
             <optgroup label="Corpus">
               <option value="Corpus - Plantation">Plantation</option>
