@@ -57,6 +57,8 @@ function Receipt() {
     };
     html2pdf().set(opt).from(element).save();
   };
+  
+  console.log(paymentDetails);
 
   return (
     <>
@@ -81,7 +83,7 @@ function Receipt() {
               <strong>Receipt No.:</strong> {receiptNumber}
             </p>
             <p>
-              <strong>Received from:</strong> {donorDetails.name}
+              <strong>Received from:</strong> {donorDetails.name} {paymentDetails.vpa}
             </p>
             <p>
               <strong>Address:</strong> {donorDetails.city || "-"}

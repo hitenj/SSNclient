@@ -33,9 +33,24 @@ export const handleRazorpayPayment = async ({ amount, onSuccess, donorDetails })
         city: donorDetails.city,
       },
       theme: { color: "#0f6e40" },
-      handler: function (response) {
-        if (onSuccess) {
-          onSuccess(response); // You already handle saving & redirect there
+      handler: async function (response) {
+        try {
+          // 3. Verify & fetch payment details from backend
+          const verifyRes = await axios.post(`${process.env.REACT_APP_API_URL}/api/payment/verify`, {
+            ...response
+          });
+
+          if (verifyRes.data.success) {
+            onSuccess({
+              donorDetails,
+              paymentDetails: verifyRes.data.paymentDetails
+            });
+          } else {
+            alert("Payment verification failed");
+          }
+        } catch (err) {
+          console.error("Error verifying payment:", err);
+          alert("Error verifying payment");
         }
       },
     };

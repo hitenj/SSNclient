@@ -50,11 +50,8 @@ function MemberApply() {
           <label>Upload Profile Picture</label>
           <input type="file" accept="image/*" name="profilePicture" onChange={handleChange} />
 
-          <label>Upload Aadhar Card</label>
+          <label>Upload Legal ID Card</label>
           <input type="file" accept="application/pdf,image/*" name="aadhar" onChange={handleChange} />
-
-          <label>Upload Other Documents (Optional)</label>
-          <input type="file" accept="application/pdf,image/*" name="otherDocs" onChange={handleChange} />
         </div>
 
         <button type="submit" className="submit-btn">Apply Now</button>
