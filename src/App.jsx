@@ -31,7 +31,7 @@ function App() {
           <Route path='/apply' element={<MemberApply />} />
           <Route path='/event' element={<UpcomingEvents />} />
           <Route path='/donate' element={<Donation />} />
-          <Route path='/receipt' element={<Receipt />} />
+          <Route path='/receipt/:id' element={<Receipt />} />
           <Route path='/complaint' element={<ComplaintSuggestion />} />
           <Route path='/donors' element={<Donors />} />
           <Route path='/crowd-funding' element={<CrowdFunding />} />
