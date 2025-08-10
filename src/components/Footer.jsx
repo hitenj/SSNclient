@@ -67,6 +67,9 @@ function Footer() {
             <li><Link to="/event">Upcoming Event</Link></li>
             <li><Link to="/problems">Your Problems</Link></li>
             <li><Link to="/donors">List of Donors</Link></li>
+            <li><Link to="/refund-policy">Refund Policy</Link></li>
+            <li><Link to="/terms-and-conditions">Terms & Conditions</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             <li><Link to="/login">Login</Link></li>
           </ul>
         </div>

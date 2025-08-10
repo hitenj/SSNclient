@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/MemberApply.css';
+import axios from 'axios';
 
 function MemberApply() {
 
@@ -14,11 +15,18 @@ function MemberApply() {
     setFormData({...formData, [name]: files? files[0] : value});
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    alert('Application submitted!');
-  };
+    try {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/complaints`,
+        formData);
+      alert('Form submitted successfully!');
+      console.log(res.data);
+      }
+    catch (err) {
+      console.error(err);
+      alert('Error submitting form');
+    }};
 
   return (
     <section className="member-apply-section">
