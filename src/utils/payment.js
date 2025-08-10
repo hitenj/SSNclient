@@ -18,7 +18,7 @@ export const handleRazorpayPayment = async ({ amount, donorDetails, onSuccess })
       currency: 'INR',
       name: 'Sarvarthasiddhi Foundation',
       description: 'Donation',
-      order_id: order.id, // required
+      order_id: order.orderId, // required
       prefill: {
         name: donorDetails.name,
         contact: donorDetails.whatsapp,

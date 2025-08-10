@@ -53,8 +53,7 @@ function Donation() {
               razorpay_order_id: paymentResponse.razorpay_order_id,
               razorpay_payment_id: paymentResponse.razorpay_payment_id,
               razorpay_signature: paymentResponse.razorpay_signature,
-              donorDetails: formData, // pass full donor form for saving
-              amount: parseInt(formData.amount) * 100,
+              donorDetails: formData
             }
           );
 
