@@ -1,64 +1,43 @@
 import { loadRazorpayScript } from "./razorpay";
 import axios from "axios";
 
-export const handleRazorpayPayment = async ({ amount, onSuccess, donorDetails }) => {
-  const res = await loadRazorpayScript();
-  if (!res) {
-    alert("Failed to load Razorpay");
-    return;
-  }
+export const handleRazorpayPayment = async ({ amount, donorDetails, onSuccess }) => {
+  const loaded = await loadRazorpayScript();
+  if (!loaded) return alert('Razorpay SDK failed to load');
 
   try {
-    // 1. Create Razorpay Order by calling your backend
-    const orderResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/payment/create-order`, {
-      amount: amount * 100, // in paise
+    // create order on server (amount in paise)
+    const orderResp = await axios.post(`${process.env.REACT_APP_API_URL}/api/payment/create-order`, {
+      amount: amount * 100
     });
+    const order = orderResp.data;
 
-    const order = orderResponse.data;
-
-    // 2. Setup Razorpay options
     const options = {
-      key: process.env.REACT_APP_RAZORPAY_KEY_ID, // live key
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
       amount: order.amount,
-      currency: "INR",
-      name: "Sarvarth Siddhi Foundation",
-      description: "Donation",
-      order_id: order.orderId, // << must be added
+      currency: 'INR',
+      name: 'Sarvarthasiddhi Foundation',
+      description: 'Donation',
+      order_id: order.id, // required
       prefill: {
         name: donorDetails.name,
         contact: donorDetails.whatsapp,
       },
       notes: {
-        pan: donorDetails.pan,
-        city: donorDetails.city,
+        pan: donorDetails.pan || '',
+        city: donorDetails.city || '',
       },
-      theme: { color: "#0f6e40" },
-      handler: async function (response) {
-        try {
-          // 3. Verify & fetch payment details from backend
-          const verifyRes = await axios.post(`${process.env.REACT_APP_API_URL}/api/payment/verify`, {
-            ...response
-          });
-
-          if (verifyRes.data.success) {
-            onSuccess({
-              donorDetails,
-              paymentDetails: verifyRes.data.paymentDetails
-            });
-          } else {
-            alert("Payment verification failed");
-          }
-        } catch (err) {
-          console.error("Error verifying payment:", err);
-          alert("Error verifying payment");
-        }
-      },
+      theme: { color: '#0f6e40' },
+      handler: function(response) {
+        // response contains razorpay_payment_id, razorpay_order_id, razorpay_signature
+        if (onSuccess) onSuccess(response);
+      }
     };
 
     const rzp = new window.Razorpay(options);
     rzp.open();
   } catch (err) {
-    console.error("Error creating Razorpay order:", err);
-    alert("Failed to initiate payment. Please try again.");
+    console.error(err);
+    alert('Failed to start payment');
   }
 };

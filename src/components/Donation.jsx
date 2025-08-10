@@ -44,29 +44,30 @@ function Donation() {
     handleRazorpayPayment({
       amount: parseInt(formData.amount),
       donorDetails: formData,
-      onSuccess: (paymentResponse) => {
-        console.log("Payment completed:", paymentResponse);
-        const donationData = {
-          ...formData,
-          paymentId: paymentResponse.razorpay_payment_id,
-          orderId: paymentResponse.razorpay_order_id,
-          signature: paymentResponse.razorpay_signature,
-          status: "success",
-        };
+      onSuccess: async (paymentResponse) => {
         try {
-          axios.post(
-            `${process.env.REACT_APP_API_URL}/api/donations`,
-            donationData
+          // call backend verify + save donation
+          const res = await axios.post(
+            `${process.env.REACT_APP_API_URL}/api/payment/verify`,
+            {
+              razorpay_order_id: paymentResponse.razorpay_order_id,
+              razorpay_payment_id: paymentResponse.razorpay_payment_id,
+              razorpay_signature: paymentResponse.razorpay_signature,
+              donorDetails: formData, // pass full donor form for saving
+              amount: parseInt(formData.amount) * 100,
+            }
           );
-          console.log("Donation saved to DB!");
-          navigate("/receipt", {
-            state: {
-              donorDetails: formData,
-              paymentDetails: paymentResponse,
-            },
-          });
-        } catch (error) {
-          console.error("Error saving donation data:", error);
+
+          if (res.data && res.data.success) {
+            const savedDonation = res.data.donation;
+            // navigate to receipt using saved donation id
+            navigate(`/receipt/${savedDonation._id}`);
+          } else {
+            alert("Payment verified but failed to save donation.");
+          }
+        } catch (err) {
+          console.error("verify/save error", err);
+          alert("Failed to verify/save donation. Contact admin.");
         }
       },
     });

@@ -18,7 +18,7 @@ function MemberApply() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/complaints`,
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/memberApply`,
         formData);
       alert('Form submitted successfully!');
       console.log(res.data);

@@ -1,31 +1,38 @@
 import React from "react";
 import "../styles/Receipt.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams} from "react-router-dom";
 import logo from "../assets/logo.png";
 import html2pdf from "html2pdf.js";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Receipt() {
-  const location = useLocation();
+  const { id } = useParams();
+  const [donation, setDonation] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  let donorDetails, paymentDetails, purpose;
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/donations/${id}`);
+        setDonation(res.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetch();
+  }, [id]);
 
-  if (location.state) {
-    donorDetails = location.state.donorDetails;
-    paymentDetails = location.state.paymentDetails;
-  } else {
-    donorDetails = null;
-    paymentDetails = null;
-  }
-
-  if (!donorDetails || !paymentDetails) {
-    return <p>No receipt data found. Please complete a donation first.</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (!donation) return <p>Donation not found.</p>;
 
   // Generate receipt number
   const receiptNumber = generateReceiptNumber();
 
   // Safely parse amount
-  const rawAmount = donorDetails?.amount;
+  const rawAmount = donation?.amount;
   const amountValue =
     rawAmount !== undefined &&
     rawAmount !== null &&
@@ -40,11 +47,11 @@ function Receipt() {
       : "Zero Rupees Only";
 
   // Transaction ID if available
-  let transactionId = "-";
-  if (paymentDetails) {
-    transactionId =
-      paymentDetails.razorpay_payment_id;
-  }
+  // let transactionId = "-";
+  // if (paymentDetails) {
+  //   transactionId =
+  //     paymentDetails.razorpay_payment_id;
+  // }
 
   const handleDownload = () => {
     const element = document.querySelector(".receipt");
@@ -56,16 +63,14 @@ function Receipt() {
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     };
     html2pdf().set(opt).from(element).save();
-  };
-  
-  console.log(paymentDetails);
+  }
 
   return (
     <>
       <div className="receipt">
         <img src={logo} className="background-logo" alt="logo" />
         <div className="header">
-          <div className="org-name">SARVARTHA SIDDHI FOUNDATION</div>
+          <div className="org-name">SARVARTHASIDDHI FOUNDATION</div>
           <div className="org-info">
             Registered under Section 8 of the Companies Act 2013
             <br />CIN: U94910UP2025NPL224635 <br />
@@ -83,10 +88,10 @@ function Receipt() {
               <strong>Receipt No.:</strong> {receiptNumber}
             </p>
             <p>
-              <strong>Received from:</strong> {donorDetails.name} {paymentDetails.vpa}
+              <strong>Received from:</strong> {donation.name} {donation.paymentDetails.vpa}
             </p>
             <p>
-              <strong>Address:</strong> {donorDetails.city || "-"}
+              <strong>Address:</strong> {donation.city || "-"}
             </p>
             {/* <p><strong>Email:</strong> -</p> */}
             <p>
@@ -99,21 +104,21 @@ function Receipt() {
           <div className="right-col">
             <p>
               <strong>Date:</strong>{" "}
-              {paymentDetails.created_at
-                ? formatDate(paymentDetails.created_at)
+              {donation.paymentDetails.created_at
+                ? formatDate(donation.paymentDetails.created_at)
                 : formatDate(Date.now() / 1000)}
             </p>
             <p>
-              <strong>Contact No.:</strong> {donorDetails.whatsapp}
+              <strong>Contact No.:</strong> {donation.whatsapp}
             </p>
             <p>
-              <strong>PAN :</strong> {donorDetails.pan ? "PAN" : "-"}
+              <strong>PAN :</strong> {donation.pan ? "PAN" : "-"}
             </p>
             <p>
-              <strong>Transaction ID:</strong> {transactionId}
+              <strong>Transaction ID:</strong> {donation.paymentId}
             </p>
             <p>
-              <strong>Purpose:</strong> {donorDetails.purpose}
+              <strong>Purpose:</strong> {donation.purpose}
             </p>
           </div>
         </div>
@@ -169,9 +174,9 @@ function Receipt() {
         </button>
         <a
           href={`https://wa.me/${
-            donorDetails.whatsapp
+            donation.whatsapp
           }?text=${encodeURIComponent(
-            `🙏 Thank you for your donation to Sarvarthasiddhi Foundation!\n\nDownload your receipt here: https://sarvarthasiddhi.org/receipt`
+            `🙏 Thank you for your donation to Sarvarthasiddhi Foundation!\n\nDownload your receipt here: https://sarvarthasiddhi.org/receipt/${id}`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
