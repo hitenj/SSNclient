@@ -92,12 +92,15 @@ function Receipt() {
             </p>
             <p>
               <strong>Received from:</strong> {donation.name}{" "}
+            </p>
+            <p>
+              <strong>Method: </strong>
               {donation.paymentDetails && donation.paymentDetails.vpa
-                ? donation.paymentDetails.vpa
+                ? donation.paymentDetails.method + " - " + donation.paymentDetails.vpa
                 : ""}
             </p>
             <p>
-              <strong>Address:</strong> {donation.city || "-"}
+              <strong>City:</strong> {donation.city || "-"}
             </p>
             {/* <p><strong>Email:</strong> -</p> */}
             <p>
