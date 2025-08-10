@@ -77,6 +77,7 @@ function Receipt() {
             Registered under Section 8 of the Companies Act 2013
             <br />
             CIN: U94910UP2025NPL224635 <br />
+            Niti Aayog reg.no. UP/2025/0653107 | Startup India reg. no. DIPP208872 <br />
             39/22A/1 Old Idgah Colony, Opp. Satsang Bhawan, Agra-282001, Uttar
             Pradesh, India <br /> Mobile: +91 97594 97594 | Email:
             sarvarthasiddhi@gmail.com
@@ -100,22 +101,17 @@ function Receipt() {
                 : ""}
             </p>
             <p>
-              <strong>City:</strong> {donation.city || "-"}
+              <strong>Address:</strong> {donation.city || "-"}
             </p>
             {/* <p><strong>Email:</strong> -</p> */}
             <p>
               <strong>Amount:</strong> ₹{amountValue.toFixed(2)}
             </p>
-            <p>
-              <strong>In Words:</strong> {amountInWords}
-            </p>
           </div>
           <div className="right-col">
             <p>
               <strong>Date:</strong>{" "}
-              {donation.paymentDetails?.created_at
-                ? formatDate(donation.paymentDetails.created_at)
-                : formatDate(Date.now() / 1000)}
+              {formatDate(donation.paymentDetails?.created_at || Date.now())}
             </p>
             <p>
               <strong>Contact No.:</strong> {donation.whatsapp}
@@ -131,27 +127,30 @@ function Receipt() {
             </p>
           </div>
         </div>
+        <p style={{ textAlign: "left", marginTop: "0", fontSize: "12.5px" }}>
+              <strong style={{fontWeight: 600}}>In Words:</strong> {amountInWords}
+            </p>
 
         <div className="tax-info">
-          <p>
+          <p className="tax80G" style={{textAlign: 'center'}}>
             <strong>
               Eligble for deduction under section 80G of Income Tax Act 1961
             </strong>
           </p>
           <p>
-            Our Income Tax Registration No. u/s 80G(5):{" "}
-            <strong>ABQCS3285BF20251</strong> | Date: 17/06/2025
+            {/* Our Income Tax*/} Unique Registration No. u/s 12A:{" "} 
+            <strong>ABQCS3285BE20251</strong> | Date: 17/06/2025
           </p>
           <p>
-            Validity Period: <strong>AY 2026–27 to AY 2027–28</strong>
+            Our Income Tax Registration No. u/s 80G(5):{" "}
+            <strong>ABQCS3285BF20251</strong> | Date: 17/06/2025 | Validity Period: <strong>AY 2026–27 to AY 2027–28</strong>
+          </p>
+          <p>
+            
           </p>
           <p>
             Our Income Tax PAN : <strong>ABQCS3285B</strong> | Our Income Tax
             TAN: <strong>AGSR23075D</strong>
-          </p>
-          <p>
-            Our Income Tax Unique Registration No. u/s 12A:{" "}
-            <strong>ABQCS3285BE20251</strong> | Date: 17/06/2025
           </p>
         </div>
 
@@ -215,8 +214,17 @@ function generateReceiptNumber() {
 }
 
 // Formats UNIX timestamp to readable date
-function formatDate(unixTimestamp) {
-  return new Date(unixTimestamp * 1000).toLocaleDateString("en-IN", {
+function formatDate(dateInput) {
+  let date;
+  if (typeof dateInput === "string") {
+    date = new Date(dateInput); // ISO string
+  } else if (typeof dateInput === "number" && dateInput < 1e12) {
+    date = new Date(dateInput * 1000); // seconds
+  } else {
+    date = new Date(dateInput); // milliseconds
+  }
+
+  return date.toLocaleDateString("en-IN", {
     day: "numeric",
     month: "long",
     year: "numeric",
