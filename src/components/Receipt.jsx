@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Receipt.css";
-import { useLocation, useParams} from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import logo from "../assets/logo.png";
 import html2pdf from "html2pdf.js";
 import axios from "axios";
@@ -14,7 +14,9 @@ function Receipt() {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/donations/${id}`);
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/donations/${id}`
+        );
         setDonation(res.data);
       } catch (err) {
         console.error(err);
@@ -63,7 +65,7 @@ function Receipt() {
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     };
     html2pdf().set(opt).from(element).save();
-  }
+  };
 
   return (
     <>
@@ -73,10 +75,11 @@ function Receipt() {
           <div className="org-name">SARVARTHASIDDHI FOUNDATION</div>
           <div className="org-info">
             Registered under Section 8 of the Companies Act 2013
-            <br />CIN: U94910UP2025NPL224635 <br />
+            <br />
+            CIN: U94910UP2025NPL224635 <br />
             39/22A/1 Old Idgah Colony, Opp. Satsang Bhawan, Agra-282001, Uttar
-            Pradesh, India <br />  Mobile: +91 97594
-            97594 | Email: sarvarthasiddhi@gmail.com
+            Pradesh, India <br /> Mobile: +91 97594 97594 | Email:
+            sarvarthasiddhi@gmail.com
           </div>
         </div>
 
@@ -88,7 +91,10 @@ function Receipt() {
               <strong>Receipt No.:</strong> {receiptNumber}
             </p>
             <p>
-              <strong>Received from:</strong> {donation.name} {donation.paymentDetails.vpa}
+              <strong>Received from:</strong> {donation.name}{" "}
+              {donation.paymentDetails && donation.paymentDetails.vpa
+                ? donation.paymentDetails.vpa
+                : ""}
             </p>
             <p>
               <strong>Address:</strong> {donation.city || "-"}
@@ -161,11 +167,11 @@ function Receipt() {
           </span>
         </div>
         <div className="footer-note">
-        <em>
-          This is a system-generated receipt and does not require a physical
-          signature.
-        </em>
-      </div>
+          <em>
+            This is a system-generated receipt and does not require a physical
+            signature.
+          </em>
+        </div>
       </div>
 
       <div className="receipt-actions">
@@ -173,9 +179,7 @@ function Receipt() {
           Download Receipt PDF
         </button>
         <a
-          href={`https://wa.me/${
-            donation.whatsapp
-          }?text=${encodeURIComponent(
+          href={`https://wa.me/${donation.whatsapp}?text=${encodeURIComponent(
             `🙏 Thank you for your donation to Sarvarthasiddhi Foundation!\n\nDownload your receipt here: https://sarvarthasiddhi.org/receipt/${id}`
           )}`}
           target="_blank"
