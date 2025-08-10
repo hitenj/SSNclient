@@ -110,7 +110,7 @@ function Receipt() {
           <div className="right-col">
             <p>
               <strong>Date:</strong>{" "}
-              {donation.paymentDetails.created_at
+              {donation.paymentDetails?.created_at
                 ? formatDate(donation.paymentDetails.created_at)
                 : formatDate(Date.now() / 1000)}
             </p>
