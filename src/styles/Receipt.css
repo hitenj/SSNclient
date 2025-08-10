@@ -84,7 +84,7 @@
 .left-col,
 .right-col {
   width: 48%;
-  line-height: 1.2;
+  line-height: 1;
   font-size: 12.5px;
   color: #212121;
 }
@@ -142,7 +142,7 @@
 .tax-info {
   font-size: 10.5px;
   line-height: 1;
-  margin-top: 20px;
+  margin-top: 12px;
   background-color: transparent;
   border-left: 3px solid #263238;
   border-right: 3px solid #263238;
