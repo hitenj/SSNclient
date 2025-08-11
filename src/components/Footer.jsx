@@ -107,7 +107,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Sarvartha Siddhi Foundation. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Sarvarthasiddhi Foundation. All rights reserved.</p>
         <button className="back-to-top" onClick={scrollToTop}>
           <FaArrowUp /> Back to Top
         </button>

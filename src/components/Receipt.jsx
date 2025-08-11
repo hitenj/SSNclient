@@ -77,7 +77,7 @@ function Receipt() {
             Registered under Section 8 of the Companies Act 2013
             <br />
             CIN: U94910UP2025NPL224635 <br />
-            Niti Aayog reg.no. UP/2025/0653107 | Startup India reg. no. DIPP208872 <br />
+            Niti Aayog Reg No - UP/2025/0653107 | Startup India Reg No - DIPP208872 <br />
             39/22A/1 Old Idgah Colony, Opp. Satsang Bhawan, Agra-282001, Uttar
             Pradesh, India <br /> Mobile: +91 97594 97594 | Email:
             sarvarthasiddhi@gmail.com
@@ -208,7 +208,7 @@ function generateReceiptNumber() {
   lastSerial += 1;
   localStorage.setItem(key, lastSerial.toString());
 
-  const serial = lastSerial.toString().padStart(3, "0");
+  const serial = lastSerial.toString().padStart(6, "0");
 
   return `SSF${year}${month}${serial}`;
 }

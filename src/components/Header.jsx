@@ -28,7 +28,7 @@ function Header() {
 
           <Link to="/" onClick={closeMenu} className="logo-text">
             <span className="full-name">SARVARTHASIDDHI FOUNDATION</span>
-            <span className="short-name">SARVARTHA SIDDHI</span>
+            <span className="short-name">SARVARTHASIDDHI.org</span>
           </Link>
         </div>
 
