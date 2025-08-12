@@ -53,7 +53,7 @@ function Donation() {
               razorpay_order_id: paymentResponse.razorpay_order_id,
               razorpay_payment_id: paymentResponse.razorpay_payment_id,
               razorpay_signature: paymentResponse.razorpay_signature,
-              donorDetails: formData
+              donorDetails: formData,
             }
           );
 
@@ -121,8 +121,13 @@ function Donation() {
             value={formData.purpose}
             onChange={handleChange}
             required
-            readOnly={!!location.state?.prefilledPurpose}
+            disabled={!!location.state?.prefilledPurpose} // prevents opening
           >
+            {!location.state?.prefilledPurpose && (
+              <option value="" disabled hidden>
+                Select purpose
+              </option>
+            )}
             <optgroup label="Corpus">
               <option value="Corpus - Plantation">Plantation</option>
               <option value="Corpus - Medical Aid">Medical Aid</option>
