@@ -1,52 +1,65 @@
-import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import '../styles/CrowdFunding.css';
+import {React, useState, useEffect} from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "../styles/CrowdFunding.css";
 
 const campaigns = [
   {
     id: 1,
-    title: 'Support Eye Surgery for Underprivileged',
-    description: 'Help us fund cataract surgeries for 50 elderly villagers in remote Rajasthan.',
-    place: 'Agra, UP',
-    postedOn: 'July 5, 2025',
-    image: 'https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?cs=srgb&dl=pexels-ritesh-arya-1423700-3079978.jpg&fm=jpg',
-    raised: 0,
-    goal: 100000,
-  },
-  {
-    id: 2,
-    title: 'Education Kits for Rural Kids',
-    description: 'Provide books, bags, and stationery to 100 school kids in rural Gujarat.',
-    place: 'Agra, UP',
-    postedOn: 'July 3, 2025',
-    image: 'https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?cs=srgb&dl=pexels-ritesh-arya-1423700-3079978.jpg&fm=jpg',
+    title: "Education Kits for Rural Kids",
+    description:
+      "Provide books, bags, and stationery to 100 underpriveledged school children.",
+    place: "Agra, UP",
+    postedOn: "August 3, 2025",
+    purpose: "Corpus - Education",
+    image:
+      "https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?cs=srgb&dl=pexels-ritesh-arya-1423700-3079978.jpg&fm=jpg",
     raised: 0,
     goal: 80000,
   },
   {
-    id: 3,
-    title: 'Planting 1 Lakh trees',
-    description: 'Join our mission to plant 1 lakh trees across cities and villages. Your support helps build a sustainable, green environment for generations to come.',
-    place: 'All over the nation',
-    postedOn: 'June 30, 2025',
-    image: 'https://www.ugaoo.com/cdn/shop/articles/shutterstock_649766830.jpg?v=1661881786',
+    id: 2,
+    title: "Planting 1 Lakh trees",
+    description:
+      "Join our mission to plant 1 lakh trees across cities and villages. Your support helps build a sustainable, green environment for generations to come.",
+    place: "All over the nation",
+    postedOn: "July 30, 2025",
+    purpose: "Corpus - Plantation",
+    image:
+      "https://www.ugaoo.com/cdn/shop/articles/shutterstock_649766830.jpg?v=1661881786",
     raised: 0,
     goal: 10000000,
   },
 ];
 
-
 function Crowdfunding({ preview = false }) {
-  const completed = campaigns.filter(c => c.raised >= c.goal);
-  const active = campaigns.filter(c => c.raised < c.goal);
+  const [campaignsData, setCampaignsData] = useState([]);
+  const completed = campaigns.filter((c) => c.raised >= c.goal);
+  const active = campaigns.filter((c) => c.raised < c.goal);
   const navigate = useNavigate();
 
+  useEffect(() => {
+  fetch("/api/donations/totals/by-purpose")
+    .then(res => res.json())
+    .then(data => {
+      const updatedCampaigns = campaigns.map(camp => {
+        const match = data.find(d => d.purpose === camp.purpose);
+        return { ...camp, raised: match ? match.totalRaised : 0 };
+      });
+      setCampaignsData(updatedCampaigns);
+    })
+    .catch(err => console.error(err));
+}, []);
+
   const handleRegisterClick = () => {
-    navigate('/register-campaign');
+    navigate("/register-campaign");
   };
 
-  const handleDonateClick = () => {
-    navigate('/donate');
+  const handleDonateClick = (c) => {
+    navigate("/donate", {
+      state: {
+        prefilledPurpose: c.purpose,
+      },
+    });
   };
 
   const handleShare = (id) => {
@@ -54,15 +67,15 @@ function Crowdfunding({ preview = false }) {
     if (navigator.share) {
       navigator
         .share({
-          title: 'Check out this campaign!',
-          text: 'Help support this cause:',
+          title: "Check out this campaign!",
+          text: "Help support this cause:",
           url,
         })
-        .then(() => console.log('Shared successfully'))
-        .catch((error) => console.error('Error sharing:', error));
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.error("Error sharing:", error));
     } else {
       navigator.clipboard.writeText(url);
-      alert('Link copied to clipboard!');
+      alert("Link copied to clipboard!");
     }
   };
 
@@ -74,7 +87,9 @@ function Crowdfunding({ preview = false }) {
         <img src={c.image} alt={c.title} />
         <div className="campaign-content">
           <h2>{c.title}</h2>
-          <p className="campaign-location">{c.place} | Posted on {c.postedOn}</p>
+          <p className="campaign-location">
+            {c.place} | Posted on {c.postedOn}
+          </p>
           <p>{c.description}</p>
           <div className="progress-bar-container">
             <div
@@ -93,7 +108,10 @@ function Crowdfunding({ preview = false }) {
               Share
             </button>
             {c.raised < c.goal && (
-              <button className="donate-btn" onClick={handleDonateClick}>
+              <button
+                className="donate-btn"
+                onClick={() => handleDonateClick(c)}
+              >
                 Donate
               </button>
             )}
@@ -128,15 +146,13 @@ function Crowdfunding({ preview = false }) {
       {active.length > 0 && (
         <>
           <h2 className="subsection-heading">
-            {preview ? 'Active Crowdfunding Campaigns' : 'Active Campaigns'}
+            {preview ? "Active Crowdfunding Campaigns" : "Active Campaigns"}
           </h2>
           <div className="campaigns-grid">
-            {active
-              .slice(0, preview ? 2 : active.length)
-              .map(renderCampaign)}
+            {active.slice(0, preview ? 2 : active.length).map(renderCampaign)}
           </div>
           {preview && (
-            <div style={{ marginTop: '2rem' }}>
+            <div style={{ marginTop: "2rem" }}>
               <Link to="/crowd-funding" className="see-all-btn">
                 See All Campaigns →
               </Link>
@@ -148,9 +164,7 @@ function Crowdfunding({ preview = false }) {
       {!preview && completed.length > 0 && (
         <>
           <h2 className="subsection-heading">Completed Campaigns</h2>
-          <div className="campaigns-grid">
-            {completed.map(renderCampaign)}
-          </div>
+          <div className="campaigns-grid">{completed.map(renderCampaign)}</div>
         </>
       )}
     </section>
