@@ -89,7 +89,7 @@ function Receipt() {
         <div className="donation-grid">
           <div className="left-col">
             <p>
-              <strong>Receipt No.:</strong> {receiptNumber}
+              <strong>Receipt No.:</strong> {donation.receiptNumber}
             </p>
             <p>
               <strong>Received from:</strong> {donation.name}{" "}
