@@ -33,111 +33,91 @@ const initialCampaigns = [
   },
 ];
 
-function Crowdfunding({ preview = false }) {
+export default function Crowdfunding({ preview = false }) {
   const [campaignsData, setCampaignsData] = useState(initialCampaigns);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch totals from backend
   useEffect(() => {
+    let mounted = true;
+
     const fetchTotals = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
-        const { data: totals } = await axios.get(
-          "/api/donations/totals"
-        );
+        // build URL: if API_BASE is empty, calls same origin
+        const url = `${process.env.REACT_APP_API_URL}/api/donations/totals`;
+        const res = await axios.get(url);
 
-        console.log("Fetched totals from backend:", totals);
+        // `res.data` expected to be an object: { "corpus - plantation": 101, "corpus - education": 5000 }
+        const totals = res.data || {};
 
-        setCampaignsData((prev) =>
-          prev.map((campaign) => {
-            const purposeKey = campaign.purpose.trim().toLowerCase();
-            const totalRaised = totals[purposeKey] || 0;
+        if (!mounted) return;
 
-            return {
-              ...campaign,
-              raised: totalRaised,
-            };
-          })
-        );
+        const updated = initialCampaigns.map((camp) => {
+          const key = camp.purpose.trim().toLowerCase();
+          const raised = typeof totals[key] !== "undefined" ? totals[key] : 0;
+          return { ...camp, raised };
+        });
+
+        setCampaignsData(updated);
       } catch (err) {
-        console.error("Error fetching totals:", err);
+        console.error("Error fetching totals:", err?.response || err.message || err);
+        setError(err);
+        // keep campaignsData as initialCampaigns or previous state
+      } finally {
+        if (mounted) setLoading(false);
       }
     };
 
     fetchTotals();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  // Navigate to register campaign
-  const handleRegisterClick = () => {
-    navigate("/register-campaign");
-  };
+  const handleRegisterClick = () => navigate("/register-campaign");
 
-  // Navigate to donate page with prefilled purpose
   const handleDonateClick = (campaign) => {
-    navigate("/donate", {
-      state: {
-        prefilledPurpose: campaign.purpose,
-      },
-    });
+    navigate("/donate", { state: { prefilledPurpose: campaign.purpose } });
   };
 
-  // Share campaign link
   const handleShare = (id) => {
     const url = `${window.location.origin}/campaign/${id}`;
     if (navigator.share) {
       navigator
-        .share({
-          title: "Check out this campaign!",
-          text: "Help support this cause:",
-          url,
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.error("Error sharing:", error));
+        .share({ title: "Check out this campaign!", text: "Help support this cause:", url })
+        .catch((e) => console.error("Share failed:", e));
     } else {
-      navigator.clipboard.writeText(url);
-      alert("Link copied to clipboard!");
+      navigator.clipboard.writeText(url).then(() => alert("Link copied to clipboard!"));
     }
   };
 
-  // Render individual campaign card
-  const renderCampaign = (campaign) => {
-    const percent = Math.min(
-      (campaign.raised / campaign.goal) * 100,
-      100
-    ).toFixed(1);
+  const renderCampaign = (c) => {
+    const percent = Math.min((c.raised / c.goal) * 100, 100).toFixed(1);
 
     return (
-      <div className="campaign-card" key={campaign.id}>
-        <img src={campaign.image} alt={campaign.title} />
+      <div className="campaign-card" key={c.id}>
+        <img src={c.image} alt={c.title} />
         <div className="campaign-content">
-          <h2>{campaign.title}</h2>
-          <p className="campaign-location">
-            {campaign.place} | Posted on {campaign.postedOn}
-          </p>
-          <p>{campaign.description}</p>
+          <h2>{c.title}</h2>
+          <p className="campaign-location">{c.place} | Posted on {c.postedOn}</p>
+          <p>{c.description}</p>
+
           <div className="progress-bar-container">
-            <div
-              className="progress-bar"
-              style={{ width: `${percent}%` }}
-            ></div>
+            <div className="progress-bar" style={{ width: `${percent}%` }} />
           </div>
-          <p className="progress-text">
-            ₹{campaign.raised.toLocaleString()} raised of ₹
-            {campaign.goal.toLocaleString()}
-          </p>
+
+          <p className="progress-text">₹{c.raised.toLocaleString()} raised of ₹{c.goal.toLocaleString()}</p>
+
           <div className="campaign-buttons">
-            <button
-              className="participate-btn"
-              onClick={() => handleShare(campaign.id)}
-            >
-              Share
-            </button>
-            {campaign.raised < campaign.goal ? (
-              <button
-                className="donate-btn"
-                onClick={() => handleDonateClick(campaign)}
-              >
-                Donate
-              </button>
+            <button className="participate-btn" onClick={() => handleShare(c.id)}>Share</button>
+
+            {c.raised < c.goal ? (
+              <button className="donate-btn" onClick={() => handleDonateClick(c)}>Donate</button>
             ) : (
               <span className="completed-tag">🎉 Goal Achieved</span>
             )}
@@ -147,13 +127,8 @@ function Crowdfunding({ preview = false }) {
     );
   };
 
-  // Separate active & completed campaigns
-  const activeCampaigns = campaignsData.filter(
-    (c) => c.raised < c.goal
-  );
-  const completedCampaigns = campaignsData.filter(
-    (c) => c.raised >= c.goal
-  );
+  const activeCampaigns = campaignsData.filter((c) => c.raised < c.goal);
+  const completedCampaigns = campaignsData.filter((c) => c.raised >= c.goal);
 
   return (
     <section className="crowdfunding-section">
@@ -161,49 +136,29 @@ function Crowdfunding({ preview = false }) {
         <>
           <h1 className="crowdfunding-title">Crowdfunding Campaigns</h1>
           <div className="register-campaign-container">
-            <button
-              className="register-campaign-btn"
-              onClick={handleRegisterClick}
-            >
-              📢 Register Your Campaign
-            </button>
-            <p className="review-note">
-              All campaigns are submitted for review to ensure authenticity.
-            </p>
+            <button className="register-campaign-btn" onClick={handleRegisterClick}>📢 Register Your Campaign</button>
+            <p className="review-note">All campaigns are submitted for review to ensure authenticity.</p>
           </div>
         </>
       )}
 
+      {loading && <p>Loading campaigns...</p>}
+      {error && <p style={{ color: "red" }}>Couldn't load totals — showing defaults.</p>}
+
       {activeCampaigns.length > 0 && (
         <>
-          <h2 className="subsection-heading">
-            {preview ? "Active Crowdfunding Campaigns" : "Active Campaigns"}
-          </h2>
-          <div className="campaigns-grid">
-            {activeCampaigns
-              .slice(0, preview ? 2 : activeCampaigns.length)
-              .map(renderCampaign)}
-          </div>
-          {preview && (
-            <div style={{ marginTop: "2rem" }}>
-              <Link to="/crowd-funding" className="see-all-btn">
-                See All Campaigns →
-              </Link>
-            </div>
-          )}
+          <h2 className="subsection-heading">{preview ? "Active Crowdfunding Campaigns" : "Active Campaigns"}</h2>
+          <div className="campaigns-grid">{activeCampaigns.slice(0, preview ? 2 : activeCampaigns.length).map(renderCampaign)}</div>
+          {preview && <div style={{ marginTop: "2rem" }}><Link to="/crowd-funding" className="see-all-btn">See All Campaigns →</Link></div>}
         </>
       )}
 
       {!preview && completedCampaigns.length > 0 && (
         <>
           <h2 className="subsection-heading">Completed Campaigns</h2>
-          <div className="campaigns-grid">
-            {completedCampaigns.map(renderCampaign)}
-          </div>
+          <div className="campaigns-grid">{completedCampaigns.map(renderCampaign)}</div>
         </>
       )}
     </section>
   );
 }
-
-export default Crowdfunding;
