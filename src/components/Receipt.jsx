@@ -31,7 +31,7 @@ function Receipt() {
   if (!donation) return <p>Donation not found.</p>;
 
   // Generate receipt number
-  const receiptNumber = generateReceiptNumber();
+
 
   // Safely parse amount
   const rawAmount = donation?.amount;

@@ -43,7 +43,7 @@ function Donors() {
             <p>📍 {donor.city}</p>
             <p>📞 {donor.whatsapp?.replace(/(\d{2})\d{4}(\d{2})/, '$1****$2')}</p>
             <p>💸 ₹ {parseFloat(donor.amount).toFixed(2)}</p>
-            <p>🗓 {new Date(donor.createdAt).toLocaleDateString('en-IN')}</p>
+            <p>🗓 {new Date(donor.paymentDetails.created_at).toLocaleDateString('en-IN')}</p>
           </div>
         ))}
       </div>
