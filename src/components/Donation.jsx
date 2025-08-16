@@ -3,7 +3,7 @@ import "../styles/Donation.css";
 import { handleRazorpayPayment } from "../utils/payment";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import QRCode from "../assets/QrCode.jpeg";
+import QRCode from "../assets/Qr_code.jpg";
 
 function Donation() {
   const navigate = useNavigate();
@@ -219,12 +219,12 @@ function Donation() {
             name to our WhatsApp 📲{" "}
             <a
               href={`https://wa.me/919759497594?text=${encodeURIComponent(
-                `Hello, I have donated. Please send me the receipt.%0A
-                  Name: ${formData.name}%0A
-                  City: ${formData.city}%0A
-                  WhatsApp: ${formData.whatsapp}%0A
-                  Purpose: ${formData.purpose}%0A
-                  Amount: ₹${formData.amount}%0A
+                `Hello, I have donated. Please send me the receipt. 
+                  Name: ${formData.name}, 
+                  City: ${formData.city}, 
+                  WhatsApp: ${formData.whatsapp}, 
+                  Purpose: ${formData.purpose}, 
+                  Amount: ₹${formData.amount}, 
                   PAN: ${formData.pan || "N/A"}`
               )}`}
               target="_blank"
