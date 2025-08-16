@@ -104,111 +104,115 @@ function Donation() {
         Your contribution helps sustain our mission and services.
       </p>
       {!showUPI ? (
-      <form className="donation-form" onSubmit={isMobile ? handleSubmitTest : handleSubmit}>
-        <div className="form-group">
-          <label>Donor Name *</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <form
+          className="donation-form"
+          onSubmit={isMobile ? handleSubmitTest : handleSubmit}
+        >
+          <div className="form-group">
+            <label>Donor Name *</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="form-group">
-          <label>City *</label>
-          <input
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-          ></input>
-        </div>
+          <div className="form-group">
+            <label>City *</label>
+            <input
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+            ></input>
+          </div>
 
-        <div className="form-group">
-          <label>WhatsApp Number *</label>
-          <input
-            type="tel"
-            name="whatsapp"
-            value={formData.whatsapp}
-            onChange={handleChange}
-            required
-            pattern="[0-9]{10,15}"
-            title="Please enter a valid WhatsApp number (digits only)"
-          />
-        </div>
+          <div className="form-group">
+            <label>WhatsApp Number *</label>
+            <input
+              type="tel"
+              name="whatsapp"
+              value={formData.whatsapp}
+              onChange={handleChange}
+              required
+              pattern="[0-9]{10,15}"
+              title="Please enter a valid WhatsApp number (digits only)"
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="donationPurpose">Purpose of Donation:</label>
-          <select
-            id="donationPurpose"
-            name="purpose"
-            value={formData.purpose}
-            onChange={handleChange}
-            required
-            disabled={!!location.state?.prefilledPurpose} // prevents opening
-          >
-            {!location.state?.prefilledPurpose && (
-              <option value="" disabled hidden>
-                Select purpose
-              </option>
-            )}
-            <optgroup label="Corpus">
-              <option value="Corpus - Plantation">Plantation</option>
-              <option value="Corpus - Medical Aid">Medical Aid</option>
-              <option value="Corpus - Education">Education</option>
-              <option value="Corpus - Women Empowerment">
-                Women Empowerment
-              </option>
-            </optgroup>
-            <optgroup label="Other">
-              <option value="Other - General Donation">General Donation</option>
-            </optgroup>
-          </select>
-        </div>
+          <div className="form-group">
+            <label htmlFor="donationPurpose">Purpose of Donation:</label>
+            <select
+              id="donationPurpose"
+              name="purpose"
+              value={formData.purpose}
+              onChange={handleChange}
+              required
+              disabled={!!location.state?.prefilledPurpose} // prevents opening
+            >
+              {!location.state?.prefilledPurpose && (
+                <option value="" disabled hidden>
+                  Select purpose
+                </option>
+              )}
+              <optgroup label="Corpus">
+                <option value="Corpus - Plantation">Plantation</option>
+                <option value="Corpus - Medical Aid">Medical Aid</option>
+                <option value="Corpus - Education">Education</option>
+                <option value="Corpus - Women Empowerment">
+                  Women Empowerment
+                </option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="Other - General Donation">
+                  General Donation
+                </option>
+              </optgroup>
+            </select>
+          </div>
 
-        <div className="form-group">
-          <label>Amount (INR) *</label>
-          <input
-            type="number"
-            name="amount"
-            value={formData.amount}
-            onChange={handleChange}
-            required
-            min="1"
-            readOnly={!!location.state?.prefilledAmount}
-          />
-        </div>
+          <div className="form-group">
+            <label>Amount (INR) *</label>
+            <input
+              type="number"
+              name="amount"
+              value={formData.amount}
+              onChange={handleChange}
+              required
+              min="1"
+              readOnly={!!location.state?.prefilledAmount}
+            />
+          </div>
 
-        <div className="form-group">
-          <label>PAN Number (Optional — Required for 80G Tax Exemption)</label>
-          <input
-            type="text"
-            name="pan"
-            value={formData.pan}
-            onChange={handleChange}
-            pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
-            title="PAN must be in format: ABCDE1234F"
-          />
-          <small className="pan-note">
-            As per 12-Sub-clause (A) of clause (iv) of first proviso to
-            sub-section (5) of section 80G
-          </small>
-        </div>
+          <div className="form-group">
+            <label>
+              PAN Number (Optional — Required for 80G Tax Exemption)
+            </label>
+            <input
+              type="text"
+              name="pan"
+              value={formData.pan}
+              onChange={handleChange}
+              pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+              title="PAN must be in format: ABCDE1234F"
+            />
+            <small className="pan-note">
+              As per 12-Sub-clause (A) of clause (iv) of first proviso to
+              sub-section (5) of section 80G
+            </small>
+          </div>
 
-        <div className="donation-center">
-          <button className="donation-button" type="submit">
-            Pay Online
-          </button>
-        </div>
-      </form>
-
+          <div className="donation-center">
+            <button className="donation-button" type="submit">
+              Pay Online
+            </button>
+          </div>
+        </form>
       ) : (
         <div className="upi-box">
           <h3>Complete Your Donation</h3>
-          <p>
-            📌 Scan the QR code below
-          </p>
+          <p>📌 Scan the QR code below</p>
           <img src={QRCode} alt="UPI QR Code" className="upi-qr" />
           <p>
             After payment, please send the <b>payment screenshot</b> with your
@@ -221,6 +225,10 @@ function Donation() {
               +91-9759497594
             </a>{" "}
             to receive your receipt.
+          </p>
+          <p className="desktop-note">
+            For donations via other payment methods, kindly use a laptop or
+            desktop.
           </p>
         </div>
       )}

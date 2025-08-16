@@ -145,3 +145,19 @@
     transform: translateY(0);
   }
 }
+
+.desktop-note {
+  font-size: 14px;
+  color: #b22222;   /* dark red for highlight */
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+  display: none;     /* hidden by default */
+}
+
+/* Show only on mobile (max-width 768px) */
+@media (max-width: 768px) {
+  .desktop-note {
+    display: block;
+  }
+}
