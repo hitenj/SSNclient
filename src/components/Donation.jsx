@@ -218,7 +218,15 @@ function Donation() {
             After payment, please send the <b>payment screenshot</b> with your
             name to our WhatsApp 📲{" "}
             <a
-              href="https://wa.me/919759497594?text=Hello%2C%20I%20have%20donated.%20Please%20send%20me%20the%20receipt."
+              href={`https://wa.me/919759497594?text=${encodeURIComponent(
+                `Hello, I have donated. Please send me the receipt.%0A
+                  Name: ${formData.name}%0A
+                  City: ${formData.city}%0A
+                  WhatsApp: ${formData.whatsapp}%0A
+                  Purpose: ${formData.purpose}%0A
+                  Amount: ₹${formData.amount}%0A
+                  PAN: ${formData.pan || "N/A"}`
+              )}`}
               target="_blank"
               rel="noreferrer"
             >
