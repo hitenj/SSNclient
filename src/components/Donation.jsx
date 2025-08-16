@@ -205,7 +205,7 @@ function Donation() {
         <div className="upi-box">
           <h3>Complete Your Donation</h3>
           <p>
-            📌 Scan the QR code below or pay via UPI ID: <b>yourupi@bank</b>
+            📌 Scan the QR code below
           </p>
           <img src={QRCode} alt="UPI QR Code" className="upi-qr" />
           <p>
