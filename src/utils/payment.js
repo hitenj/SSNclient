@@ -15,7 +15,7 @@ export const handleRazorpayPayment = async ({
       `${process.env.REACT_APP_API_URL}/api/payment/create-order`,
       {
         amount: amount * 100,
-        donorDetails // send donor details to backend
+        donorDetails, // send donor details to backend
       }
     );
     const order = orderResp.data;
@@ -32,8 +32,11 @@ export const handleRazorpayPayment = async ({
         contact: donorDetails.whatsapp,
       },
       notes: {
+        name: donorDetails.name,
+        city: donorDetails.city,
+        whatsapp: donorDetails.whatsapp,
         pan: donorDetails.pan || "",
-        city: donorDetails.city || "",
+        purpose: donorDetails.purpose,
       },
       theme: { color: "#0f6e40" },
       // ✅ Desktop flow (popup)
