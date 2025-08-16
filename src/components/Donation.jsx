@@ -101,7 +101,7 @@ function Donation() {
       <p className="donation-subtitle">
         Your contribution helps sustain our mission and services.
       </p>
-
+      {!showUPI ? (
       <form className="donation-form" onSubmit={handleSubmitTest}>
         <div className="form-group">
           <label>Donor Name *</label>
@@ -201,7 +201,7 @@ function Donation() {
         </div>
       </form>
 
-      {showUPI && (
+      ) : (
         <div className="upi-box">
           <h3>Complete Your Donation</h3>
           <p>
