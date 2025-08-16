@@ -95,6 +95,8 @@ function Donation() {
     setShowUPI(true); // show QR code and instructions
   };
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   return (
     <section className="donation-section">
       <h1 className="donation-title">Support SarvarthaSiddhi</h1>
@@ -102,7 +104,7 @@ function Donation() {
         Your contribution helps sustain our mission and services.
       </p>
       {!showUPI ? (
-      <form className="donation-form" onSubmit={handleSubmitTest}>
+      <form className="donation-form" onSubmit={isMobile ? handleSubmitTest : handleSubmit}>
         <div className="form-group">
           <label>Donor Name *</label>
           <input
@@ -212,7 +214,7 @@ function Donation() {
             After payment, please send the <b>payment screenshot</b> with your
             name to our WhatsApp 📲{" "}
             <a
-              href="https://wa.me/919759497594"
+              href="https://wa.me/919759497594?text=Hello%2C%20I%20have%20donated.%20Please%20send%20me%20the%20receipt."
               target="_blank"
               rel="noreferrer"
             >
