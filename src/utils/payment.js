@@ -15,6 +15,7 @@ export const handleRazorpayPayment = async ({
       `${process.env.REACT_APP_API_URL}/api/payment/create-order`,
       {
         amount: amount * 100,
+        donorDetails // send donor details to backend
       }
     );
     const order = orderResp.data;
