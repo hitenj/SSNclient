@@ -3,6 +3,7 @@ import "../styles/Donation.css";
 import { handleRazorpayPayment } from "../utils/payment";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import QRCode from "../assets/QrCode.jpeg";
 
 function Donation() {
   const navigate = useNavigate();
@@ -24,6 +25,8 @@ function Donation() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const [showUPI, setShowUPI] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,6 +75,26 @@ function Donation() {
     });
   };
 
+  // Test submission handler for showing UPI QR code
+  const handleSubmitTest = (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.name ||
+      !formData.city ||
+      !formData.whatsapp ||
+      !formData.amount ||
+      !formData.purpose
+    ) {
+      alert(
+        "Please fill all required fields: Name, City, WhatsApp, Purpose and Amount."
+      );
+      return;
+    }
+
+    setShowUPI(true); // show QR code and instructions
+  };
+
   return (
     <section className="donation-section">
       <h1 className="donation-title">Support SarvarthaSiddhi</h1>
@@ -79,7 +102,7 @@ function Donation() {
         Your contribution helps sustain our mission and services.
       </p>
 
-      <form className="donation-form" onSubmit={handleSubmit}>
+      <form className="donation-form" onSubmit={handleSubmitTest}>
         <div className="form-group">
           <label>Donor Name *</label>
           <input
@@ -177,6 +200,28 @@ function Donation() {
           </button>
         </div>
       </form>
+
+      {showUPI && (
+        <div className="upi-box">
+          <h3>Complete Your Donation</h3>
+          <p>
+            📌 Scan the QR code below or pay via UPI ID: <b>yourupi@bank</b>
+          </p>
+          <img src={QRCode} alt="UPI QR Code" className="upi-qr" />
+          <p>
+            After payment, please send the <b>payment screenshot</b> with your
+            name to our WhatsApp 📲{" "}
+            <a
+              href="https://wa.me/919759497594"
+              target="_blank"
+              rel="noreferrer"
+            >
+              +91-9759497594
+            </a>{" "}
+            to receive your receipt.
+          </p>
+        </div>
+      )}
     </section>
   );
 }
