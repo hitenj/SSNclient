@@ -3,7 +3,7 @@ import "../styles/Donation.css";
 import { handleRazorpayPayment } from "../utils/payment";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import QRCode from "../assets/Qr_code.jpg";
+import QRCode from "../assets/QR_Code.jpeg";
 
 function Donation() {
   const navigate = useNavigate();
